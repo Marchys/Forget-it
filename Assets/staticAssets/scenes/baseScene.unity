@@ -721,7 +721,7 @@ MonoBehaviour:
     height: 2818.8503
   selectedBlock: {fileID: 1390555305}
   selectedCommands:
-  - {fileID: 1390555339}
+  - {fileID: 1390555340}
   variables: []
   description: Forguet-it
   stepPause: 0
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1514427601}
   duration: 1
   targetColor: {r: 1, g: 1, b: 1, a: 0}
-  waitUntilFinished: 1
+  waitUntilFinished: 0
 --- !u!1 &1514427600
 GameObject:
   m_ObjectHideFlags: 0
