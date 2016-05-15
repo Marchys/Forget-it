@@ -1,0 +1,13 @@
+Key,Description,Standard
+SAY.Flowchart.102.,,Bienvenido a la gran historia de Olvidalo
+SAY.Flowchart.106.Kolsov,,“No... “
+SAY.Flowchart.109.Kolsov,,“¿Quién…? ¿Quién eres?”
+SAY.Flowchart.108.Kolsov,,“¡No te acerques! O apretaré el gatillo.”
+SAY.Flowchart.107.Detectives,,¡Tranquilo! No me acercaré. Pero cálmate.
+SAY.Flowchart.110.Detectives,,Esto… esto es una locura.
+SAY.Flowchart.111.Detectives,,¿Vas a acabar con tu vida? ¿Por qué?
+SAY.Flowchart.112.Kolsov,,…
+SAY.Flowchart.114.Kolsov,,Porque… 
+SAY.Flowchart.113.Kolsov,,Porque soy un monstruo.
+CHARACTER.Detectives,,Detectives
+CHARACTER.Kolsov,,Kolsov
