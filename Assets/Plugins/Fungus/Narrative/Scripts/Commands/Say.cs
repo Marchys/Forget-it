@@ -82,8 +82,9 @@ namespace Fungus
 
 			sayDialog.SetCharacter(character, flowchart);
 			sayDialog.SetCharacterImage(portrait);
+		    if (character != null) sayDialog.SetFont(character.font);
 
-			string displayText = storyText;
+		    string displayText = storyText;
 
 			foreach (CustomTag ct in CustomTag.activeCustomTags)
 			{

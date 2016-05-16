@@ -341,6 +341,7 @@ MonoBehaviour:
   nameColor: {r: 0.30687717, g: 0.4762378, b: 0.9705882, a: 1}
   soundEffect: {fileID: 0}
   profileSprite: {fileID: 0}
+  font: {fileID: 12800000, guid: 79197ecfbc3a4294a89ce589dac02cf2, type: 3}
   portraits: []
   portraitsFace: 0
   setSayDialog: {fileID: 0}
@@ -466,6 +467,7 @@ MonoBehaviour:
   nameColor: {r: 0.14407587, g: 0.61764705, b: 0.12716264, a: 1}
   soundEffect: {fileID: 0}
   profileSprite: {fileID: 0}
+  font: {fileID: 12800000, guid: 64bd3e45f7a714f16b3c213f55f17fea, type: 3}
   portraits: []
   portraitsFace: 0
   setSayDialog: {fileID: 0}
@@ -719,9 +721,8 @@ MonoBehaviour:
     y: -1729.3505
     width: 5969.446
     height: 2818.8503
-  selectedBlock: {fileID: 1390555305}
-  selectedCommands:
-  - {fileID: 1390555340}
+  selectedBlock: {fileID: 0}
+  selectedCommands: []
   variables: []
   description: Forguet-it
   stepPause: 0
@@ -956,7 +957,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -2441.415
-    y: -1156.8232
+    y: -1157.8374
     width: 137
     height: 40
   itemId: 116
@@ -1807,7 +1808,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &1390555340
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1390555290}

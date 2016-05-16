@@ -12,13 +12,14 @@ namespace Fungus
 	{
 		public string nameText; // We need a separate name as the object name is used for character variations (e.g. "Smurf Happy", "Smurf Sad")
 		public Color nameColor = Color.white;
-		public AudioClip soundEffect;
+        public AudioClip soundEffect;
 		public Sprite profileSprite;
-		public List<Sprite> portraits;
+        public Font font;
+        public List<Sprite> portraits;
 		public FacingDirection portraitsFace;
 		public PortraitState state;
-
-		[Tooltip("Sets the active Say dialog with a reference to a Say Dialog object in the scene. All story text will now display using this Say Dialog.")]
+        
+        [Tooltip("Sets the active Say dialog with a reference to a Say Dialog object in the scene. All story text will now display using this Say Dialog.")]
 		public SayDialog setSayDialog;
 
 		[FormerlySerializedAs("notes")]
