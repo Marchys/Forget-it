@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/__StaticAssets/scenes/Section-A.unity
+  - enabled: 1
+    path: Assets/__StaticAssets/scenes/common/Characters.unity
+  - enabled: 1
+    path: Assets/__StaticAssets/scenes/common/Stage.unity
+  - enabled: 1
+    path: Assets/__StaticAssets/scenes/common/Camera.unity
+  - enabled: 1
+    path: Assets/__StaticAssets/scenes/common/Images.unity
+  - enabled: 1
+    path: Assets/__StaticAssets/scenes/common/Localization.unity

@@ -21,7 +21,49 @@ public sealed class SRScenes {
     
     private const string _tsInternal = "1.2.1-Unity5";
     
-    private static global::System.Collections.Generic.IList<global::TypeSafe.Scene> __all = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.Scene>(new global::TypeSafe.Scene[0]);
+    public static global::TypeSafe.Scene SectionA {
+        get {
+            return __all[0];
+        }
+    }
+    
+    public static global::TypeSafe.Scene Characters {
+        get {
+            return __all[1];
+        }
+    }
+    
+    public static global::TypeSafe.Scene Stage {
+        get {
+            return __all[2];
+        }
+    }
+    
+    public static global::TypeSafe.Scene Camera {
+        get {
+            return __all[3];
+        }
+    }
+    
+    public static global::TypeSafe.Scene Images {
+        get {
+            return __all[4];
+        }
+    }
+    
+    public static global::TypeSafe.Scene Localization {
+        get {
+            return __all[5];
+        }
+    }
+    
+    private static global::System.Collections.Generic.IList<global::TypeSafe.Scene> __all = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.Scene>(new global::TypeSafe.Scene[] {
+                new global::TypeSafe.Scene("Section-A", 0),
+                new global::TypeSafe.Scene("Characters", 1),
+                new global::TypeSafe.Scene("Stage", 2),
+                new global::TypeSafe.Scene("Camera", 3),
+                new global::TypeSafe.Scene("Images", 4),
+                new global::TypeSafe.Scene("Localization", 5)});
     
     public static global::System.Collections.Generic.IList<global::TypeSafe.Scene> All {
         get {
