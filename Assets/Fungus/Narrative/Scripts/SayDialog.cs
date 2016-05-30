@@ -36,6 +36,7 @@ namespace Fungus
         protected bool fadeWhenDone = true;
         protected float targetAlpha = 0f;
         protected float fadeCoolDownTimer = 0f;
+        private SayDialogBox currentDialogBox = Config.DialogBox.StandardConfig;
 
         public static SayDialog GetSayDialog()
         {
@@ -113,14 +114,26 @@ namespace Fungus
             return writerAudio;
         }
 
-        public virtual void SetFont(Font font)
+        public void SetDialogBox(SayDialogBox dialogBox)
         {
-            if (font != null)
+            if (currentDialogBox.Id == dialogBox.Id)
             {
-                storyText.font = font;
                 return;
             }
-            Debug.Log("Font not specified");
+            currentDialogBox = dialogBox;
+            return;
+        }
+
+        public void SetFont(Font font)
+        {
+            if (font == null)
+            {
+                Debug.Log("Font not specified");
+                return;
+            }
+            if (storyText.font == font) return;
+            storyText.font = font;
+            return;
         }
 
         protected void Start()

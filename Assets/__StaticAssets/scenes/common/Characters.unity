@@ -132,6 +132,7 @@ MonoBehaviour:
   font: {fileID: 12800000, guid: 79197ecfbc3a4294a89ce589dac02cf2, type: 3}
   portraits: []
   portraitsFace: 0
+  dialogBox: 1
   setSayDialog: {fileID: 0}
   description: 
 --- !u!1 &1075660435
@@ -168,6 +169,7 @@ MonoBehaviour:
   font: {fileID: 12800000, guid: 64bd3e45f7a714f16b3c213f55f17fea, type: 3}
   portraits: []
   portraitsFace: 0
+  dialogBox: 2
   setSayDialog: {fileID: 0}
   description: 
 --- !u!4 &1075660437
@@ -226,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMainScene: 0
   _sceneSetup: []
-  _thisScenePath: Assets/__StaticAssets/scenes/characters.unity
+  _thisScenePath: Assets/__StaticAssets/scenes/common/Characters.unity
 --- !u!4 &1422310456
 Transform:
   m_ObjectHideFlags: 0

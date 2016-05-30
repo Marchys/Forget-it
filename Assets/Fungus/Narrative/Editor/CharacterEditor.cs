@@ -18,8 +18,9 @@ namespace Fungus
         protected SerializedProperty fontProp;
         protected SerializedProperty descriptionProp;
 		protected SerializedProperty setSayDialogProp;
+        protected SerializedProperty dialogBoxProp;
 
-		protected virtual void OnEnable()
+        protected virtual void OnEnable()
 		{
 			nameTextProp = serializedObject.FindProperty ("nameText");
 			nameColorProp = serializedObject.FindProperty ("nameColor");
@@ -29,7 +30,8 @@ namespace Fungus
 			descriptionProp = serializedObject.FindProperty ("description");
 			setSayDialogProp = serializedObject.FindProperty("setSayDialog");
 		    fontProp = serializedObject.FindProperty("font");
-		}
+            dialogBoxProp = serializedObject.FindProperty("dialogBox");
+        }
 
 		public override void OnInspectorGUI() 
 		{
@@ -43,6 +45,7 @@ namespace Fungus
 			EditorGUILayout.PropertyField(setSayDialogProp);
 			EditorGUILayout.PropertyField(descriptionProp, new GUIContent("Description", "Notes about this story character (personality, attibutes, etc.)"));
             EditorGUILayout.PropertyField(fontProp, new GUIContent("Font", "Font used for this character"));
+            EditorGUILayout.PropertyField(dialogBoxProp, new GUIContent("Dialog Box", "Settings of the charatcer dialog box"));
 
             if (t.portraits != null &&
 				t.portraits.Count > 0)
