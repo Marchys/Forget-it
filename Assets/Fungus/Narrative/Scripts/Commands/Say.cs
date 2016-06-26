@@ -82,8 +82,6 @@ namespace Fungus
 
 			sayDialog.SetCharacter(character, flowchart);
 			sayDialog.SetCharacterImage(portrait);
-		    if (character != null) sayDialog.SetFont(character.font);
-		    if (character != null) sayDialog.SetDialogBox(character.GetDialogBox());
 
 		    string displayText = storyText;
 

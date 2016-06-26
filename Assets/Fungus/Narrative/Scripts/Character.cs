@@ -3,7 +3,6 @@ using UnityEngine.Serialization;
 using System.Collections;
 using System.Collections.Generic;
 using System;
-using DialogBoxConfig = Config.DialogBox;
 
 namespace Fungus
 {
@@ -15,13 +14,9 @@ namespace Fungus
         public Color nameColor = Color.white;
         public AudioClip soundEffect;
         public Sprite profileSprite;
-        public Font font;
         public List<Sprite> portraits;
         public FacingDirection portraitsFace;
         public PortraitState state;
-        //public SayDialogBox[] dialogBox = DialogBoxConfig.Configurations;
-        public DialogBoxConfig.DialogBoxTypes dialogBox = DialogBoxConfig.DialogBoxTypes.Standard;
-        private SayDialogBox[] dialogBoxes = DialogBoxConfig.Configurations;
          [Tooltip("Sets the active Say dialog with a reference to a Say Dialog object in the scene. All story text will now display using this Say Dialog.")]
         public SayDialog setSayDialog;
 
@@ -69,10 +64,6 @@ namespace Fungus
             return "CHARACTER." + nameText;
         }
 
-        public virtual SayDialogBox GetDialogBox()
-        {
-            return dialogBoxes[(int)dialogBox];
-        }
     }
 
 }
