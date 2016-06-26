@@ -180,7 +180,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c7d0c092024cb9843977e723e4a5fcc9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
@@ -372,9 +372,9 @@ MonoBehaviour:
     y: -1729.3505
     width: 5969.446
     height: 2818.8503
-  selectedBlock: {fileID: 1390555292}
+  selectedBlock: {fileID: 1390555305}
   selectedCommands:
-  - {fileID: 1390555297}
+  - {fileID: 1390555324}
   variables: []
   description: Forguet-it
   stepPause: 0
@@ -1514,6 +1514,681 @@ MonoBehaviour:
       fullPath: /Flowchart
       componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
+      componentIndex: 23
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Detective
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 24
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 32
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 33
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 25
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 26
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 34
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 27
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 28
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Detective
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 29
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 30
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Detective
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 31
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 35
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 36
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 10
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Detective
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 11
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 12
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Detective
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 13
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Detective
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 14
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 15
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 16
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 17
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Detective
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 18
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Detective
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 19
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 20
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Detective
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 21
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 22
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: character
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /Kolsov
+      componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       componentIndex: 1
       editorLocalId: 0
       editorPrefabRelativePath: 
@@ -1830,7 +2505,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e927b4b5743e05747b68606803a2197b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
