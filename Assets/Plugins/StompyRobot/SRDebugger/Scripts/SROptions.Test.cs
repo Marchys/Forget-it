@@ -197,6 +197,7 @@ public partial class SROptions
     private void OnValueChanged(string n, object newValue)
     {
         Debug.Log("[SRDebug] {0} value changed to {1}".Fmt(n, newValue));
+        OnPropertyChanged(n);
     }
 
     [Category("SRDebugger")]

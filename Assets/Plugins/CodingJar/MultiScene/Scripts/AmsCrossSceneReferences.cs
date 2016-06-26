@@ -268,21 +268,19 @@ namespace CodingJar.MultiScene
 			if ( EditorSceneManager.sceneCount < 2 )
 				return;
 
-			//
-			// This deserves an explanation.  This gets serialized right before we do a build IF this scene is active
-			// at the time of building.  The problem is, when we come back from the build, we get duplicate prefabs in
-			// the scene since the cross-scene reference was still active.  So what we wanna do, is FAIL a resolve.
-			//
-			foreach( var xRef in _crossSceneReferences )
+			// Give us one last shot...
+			ResolvePendingCrossSceneReferences();
+
+			// Warn about any references that were not yet resolved...
+			foreach( var xRef in _referencesToResolve )
 			{
-				try
-				{
-					Debug.LogWarningFormat( "Nulling out cross-scene reference: {0}", xRef );
-					xRef.SetToNull();
-				} catch ( System.Exception ) {}
+				Debug.LogWarningFormat( "Did not resolve Cross-Scene Reference during build: {0}", xRef );
 			}
 
-			// Unfortunately, Unity 5.3.1p4 still causes these references to be saved into the temporary file... so we need to remove them when we come back from building.
+			// This deserves an explanation.  This gets serialized right before we do a build IF this scene is active
+			// at the time of building.  The problem is, when we come back from the build, we get duplicate prefabs in
+			// the scene since the cross-scene reference was still active.  So what we wanna do, is delete those when
+			// we come back from the build.
 			gameObject.scene.GetRootGameObjects( _realSceneRootsForPostBuild  );
 		}
 #endif

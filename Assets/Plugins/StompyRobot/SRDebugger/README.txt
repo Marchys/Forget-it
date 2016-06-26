@@ -47,6 +47,12 @@ For documentation on other features, including the options tab, bug reporter, pr
 
 # Change Log
 
+1.4.8
+----------
+
+New:
+- Added "SROptions Window" for tweaking SROptions parameters while working in the Unity Editor. (Unity 5 only)
+
 1.4.7
 ----------
 

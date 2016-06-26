@@ -12,6 +12,7 @@
         public const string BugReportSheetPath = "SRDebugger/UI/Prefabs/BugReportSheet";
         public const string SettingsMenuItemPath = "Window/SRDebugger/Settings Window";
         public const string WelcomeItemPath = "Window/SRDebugger/Welcome Guide";
+        public const string SROptionsMenuItemPath = "Window/SRDebugger/SROptions Window";
         public const string EditorLogoPath = "UI/Sprites/Default/Logo.psd";
     }
 }

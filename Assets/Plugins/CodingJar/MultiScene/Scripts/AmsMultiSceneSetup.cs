@@ -149,7 +149,7 @@ namespace CodingJar.MultiScene
 		{
 #if UNITY_EDITOR
 			// Make sure we update the settings every time we unload/load a Scene
-			EditorApplication.hierarchyWindowChanged -= OnBeforeSerialize;
+			EditorApplication.hierarchyWindowChanged -= OnHierarchyChanged;
 #endif
 
 			if ( OnDestroyed != null )
@@ -177,8 +177,8 @@ namespace CodingJar.MultiScene
 			// This is strategically placed after the LoadSceneSetup().
 			if ( !EditorApplication.isPlaying )
 			{
-				EditorApplication.hierarchyWindowChanged -= OnBeforeSerialize;
-				EditorApplication.hierarchyWindowChanged += OnBeforeSerialize;
+				EditorApplication.hierarchyWindowChanged -= OnHierarchyChanged;
+				EditorApplication.hierarchyWindowChanged += OnHierarchyChanged;
 			}
 #endif
 		}
@@ -304,6 +304,13 @@ namespace CodingJar.MultiScene
 			// Save off the scene path
 			if ( gameObject && gameObject.scene.IsValid() )
 				_thisScenePath = gameObject.scene.path;
+#endif
+		}
+
+#if UNITY_EDITOR
+		public void OnHierarchyChanged()
+		{
+			OnBeforeSerialize();
 
 			// We don't care about the scene setup
 			if ( !_isMainScene )
@@ -345,10 +352,8 @@ namespace CodingJar.MultiScene
 				if ( gameObject )
 					EditorSceneManager.MarkSceneDirty( gameObject.scene );
 			}
-#endif
 		}
 
-#if UNITY_EDITOR
 		/// <summary>
 		/// Loads the scene setup in the Editor
 		/// </summary>

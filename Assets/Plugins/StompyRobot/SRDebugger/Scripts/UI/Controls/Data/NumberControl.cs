@@ -19,7 +19,7 @@
             typeof (float), typeof (double)
         };
 
-        private static readonly Dictionary<Type, ValueRange> ValueRanges = new Dictionary<Type, ValueRange>
+        public static readonly Dictionary<Type, ValueRange> ValueRanges = new Dictionary<Type, ValueRange>
         {
             {typeof (int), new ValueRange {MaxValue = int.MaxValue, MinValue = int.MinValue}},
             {typeof (short), new ValueRange {MaxValue = short.MaxValue, MinValue = short.MinValue}},
@@ -183,7 +183,7 @@
             return double.MinValue;
         }
 
-        private struct ValueRange
+        public struct ValueRange
         {
             public double MaxValue;
             public double MinValue;
