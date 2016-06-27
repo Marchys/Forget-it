@@ -287,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -2920.1191
+    x: -2921.1333
     y: -1001.64935
     width: 131
     height: 40
@@ -374,7 +374,7 @@ MonoBehaviour:
     height: 2818.8503
   selectedBlock: {fileID: 1390555305}
   selectedCommands:
-  - {fileID: 1390555324}
+  - {fileID: 1390555332}
   variables: []
   description: Forguet-it
   stepPause: 0
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1514427601}
   duration: 1
   targetColor: {r: 1, g: 1, b: 1, a: 1}
-  waitUntilFinished: 0
+  waitUntilFinished: 1
 --- !u!114 &1390555324
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1458,7 +1458,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 741513297}
   duration: 1
   targetColor: {r: 1, g: 1, b: 1, a: 1}
-  waitUntilFinished: 0
+  waitUntilFinished: 1
 --- !u!114 &1390555340
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1476,7 +1476,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1514427601}
   duration: 1
   targetColor: {r: 1, g: 1, b: 1, a: 0}
-  waitUntilFinished: 0
+  waitUntilFinished: 1
 --- !u!1 &1422310453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,6 +1568,31 @@ MonoBehaviour:
       editorLocalId: 0
       editorPrefabRelativePath: 
       version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 32
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
     _fromField: character
     _toObject:
       scene:
@@ -1579,6 +1604,31 @@ MonoBehaviour:
         PublicKeyToken=null
       componentIndex: 0
       editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 33
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1618,6 +1668,31 @@ MonoBehaviour:
       editorLocalId: 0
       editorPrefabRelativePath: 
       version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 25
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
     _fromField: character
     _toObject:
       scene:
@@ -1629,6 +1704,31 @@ MonoBehaviour:
         PublicKeyToken=null
       componentIndex: 0
       editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 26
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1668,6 +1768,31 @@ MonoBehaviour:
       editorLocalId: 0
       editorPrefabRelativePath: 
       version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 34
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
     _fromField: character
     _toObject:
       scene:
@@ -1679,6 +1804,31 @@ MonoBehaviour:
         PublicKeyToken=null
       componentIndex: 0
       editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 27
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1718,6 +1868,31 @@ MonoBehaviour:
       editorLocalId: 0
       editorPrefabRelativePath: 
       version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 28
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
     _fromField: character
     _toObject:
       scene:
@@ -1729,6 +1904,31 @@ MonoBehaviour:
         PublicKeyToken=null
       componentIndex: 0
       editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 29
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1768,6 +1968,31 @@ MonoBehaviour:
       editorLocalId: 0
       editorPrefabRelativePath: 
       version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 30
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
     _fromField: character
     _toObject:
       scene:
@@ -1779,6 +2004,31 @@ MonoBehaviour:
         PublicKeyToken=null
       componentIndex: 0
       editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 31
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1818,6 +2068,31 @@ MonoBehaviour:
       editorLocalId: 0
       editorPrefabRelativePath: 
       version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 35
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
     _fromField: character
     _toObject:
       scene:
@@ -1829,6 +2104,31 @@ MonoBehaviour:
         PublicKeyToken=null
       componentIndex: 0
       editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+  - _fromObject:
+      scene:
+        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
+        name: Section-A
+        _path: Assets/__StaticAssets/scenes/Section-A.unity
+      fullPath: /Flowchart
+      componentName: Fungus.Say, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 36
+      editorLocalId: 0
+      editorPrefabRelativePath: 
+      version: 1
+    _fromField: setSayDialog
+    _toObject:
+      scene:
+        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
+        name: Characters
+        _path: Assets/__StaticAssets/scenes/common/Characters.unity
+      fullPath: /ImageSayDialog
+      componentName: Fungus.SayDialog, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      componentIndex: 0
+      editorLocalId: 1586049183
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
