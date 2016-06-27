@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isMainScene: 0
   _sceneSetup: []
-  _thisScenePath: Assets/__StaticAssets/scenes/Images.unity
+  _thisScenePath: Assets/__StaticAssets/scenes/common/Images.unity
 --- !u!4 &1655879102
 Transform:
   m_ObjectHideFlags: 0
@@ -165,8 +165,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2016355051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.7868314, y: 2.7868314, z: 2.7868314}
+  m_LocalPosition: {x: -0.23, y: -0.02, z: 0}
+  m_LocalScale: {x: 2.842698, y: 2.7772615, z: 2.7868314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
