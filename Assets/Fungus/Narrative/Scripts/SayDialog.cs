@@ -113,6 +113,18 @@ namespace Fungus
             return writerAudio;
         }
 
+        public void SetFont(Font font)
+        {
+            if (font == null)
+            {
+                Debug.Log("Font not specified");
+                return;
+            }
+            if (storyText.font == font) return;
+            storyText.font = font;
+            return;
+        }
+
         protected void Start()
         {
             // Dialog always starts invisible, will be faded in when writing starts

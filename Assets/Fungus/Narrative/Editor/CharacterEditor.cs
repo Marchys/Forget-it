@@ -17,6 +17,7 @@ namespace Fungus
 		protected SerializedProperty portraitsFaceProp;
         protected SerializedProperty descriptionProp;
 		protected SerializedProperty setSayDialogProp;
+        protected SerializedProperty fontProp;
 
         protected virtual void OnEnable()
 		{
@@ -26,7 +27,8 @@ namespace Fungus
 			portraitsProp = serializedObject.FindProperty ("portraits");
 			portraitsFaceProp = serializedObject.FindProperty ("portraitsFace");
 			descriptionProp = serializedObject.FindProperty ("description");
-			setSayDialogProp = serializedObject.FindProperty("setSayDialog");
+            fontProp = serializedObject.FindProperty("font");
+            setSayDialogProp = serializedObject.FindProperty("setSayDialog");
         }
 
 		public override void OnInspectorGUI() 
@@ -36,9 +38,10 @@ namespace Fungus
 			Character t = target as Character;
 
 			EditorGUILayout.PropertyField(nameTextProp, new GUIContent("Name Text", "Name of the character display in the dialog"));
-			EditorGUILayout.PropertyField(nameColorProp, new GUIContent("Name Color", "Color of name text display in the dialog"));
+            EditorGUILayout.PropertyField(nameColorProp, new GUIContent("Name Color", "Color of name text display in the dialog"));
 			EditorGUILayout.PropertyField(soundEffectProp, new GUIContent("Sound Effect", "Sound to play when the character is talking. Overrides the setting in the Dialog."));
-			EditorGUILayout.PropertyField(setSayDialogProp);
+            EditorGUILayout.PropertyField(fontProp, new GUIContent("Font", "Font used for this character"));
+            EditorGUILayout.PropertyField(setSayDialogProp);
 			EditorGUILayout.PropertyField(descriptionProp, new GUIContent("Description", "Notes about this story character (personality, attibutes, etc.)"));
 
             if (t.portraits != null &&

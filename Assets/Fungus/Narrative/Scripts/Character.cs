@@ -19,6 +19,7 @@ namespace Fungus
         public PortraitState state;
          [Tooltip("Sets the active Say dialog with a reference to a Say Dialog object in the scene. All story text will now display using this Say Dialog.")]
         public SayDialog setSayDialog;
+        public Font font;
 
         [FormerlySerializedAs("notes")]
         [TextArea(5, 10)]
