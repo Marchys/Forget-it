@@ -87,6 +87,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468638}
+  - 114: {fileID: 11495428}
   - 95: {fileID: 9560854}
   m_Layer: 0
   m_Name: Kolzov
@@ -178,7 +179,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161044}
   m_LocalRotation: {x: 0, y: 0, z: -0.0041888487, w: 0.9999913}
-  m_LocalPosition: {x: -3.2569823, y: -1.95, z: 0}
+  m_LocalPosition: {x: -3.86, y: -3.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.48}
   m_Children:
@@ -255,6 +256,26 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11495428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: Kolsov
+  nameColor: {r: 0.14407587, g: 0.61764705, b: 0.12716264, a: 1}
+  soundEffect: {fileID: 0}
+  profileSprite: {fileID: 0}
+  portraits: []
+  portraitsFace: 0
+  setSayDialog: {fileID: 0}
+  font: {fileID: 12800000, guid: e99295c55c4149545b2221d3350bbdcf, type: 3}
+  description: 
 --- !u!212 &21209874
 SpriteRenderer:
   m_ObjectHideFlags: 1

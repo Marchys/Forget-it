@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Kalsov
+    uniqueID: 1589573543
+    locked: 0
+  - name: StoryImages
+    uniqueID: 1884606643
+    locked: 0
