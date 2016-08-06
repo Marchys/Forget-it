@@ -22,8 +22,9 @@ namespace Fungus
 		protected SerializedProperty portraitsFaceProp;
 		protected SerializedProperty descriptionProp;
 		protected SerializedProperty setSayDialogProp;
+        protected SerializedProperty fontProp;
 
-		protected virtual void OnEnable()
+        protected virtual void OnEnable()
 		{
 			nameTextProp = serializedObject.FindProperty ("nameText");
 			nameColorProp = serializedObject.FindProperty ("nameColor");
@@ -32,7 +33,8 @@ namespace Fungus
 			portraitsFaceProp = serializedObject.FindProperty ("portraitsFace");
 			descriptionProp = serializedObject.FindProperty ("description");
 			setSayDialogProp = serializedObject.FindProperty("setSayDialog");
-		}
+            fontProp = serializedObject.FindProperty("font");
+        }
 
 		public override void OnInspectorGUI() 
 		{
@@ -45,8 +47,9 @@ namespace Fungus
 			EditorGUILayout.PropertyField(soundEffectProp, new GUIContent("Sound Effect", "Sound to play when the character is talking. Overrides the setting in the Dialog."));
 			EditorGUILayout.PropertyField(setSayDialogProp);
 			EditorGUILayout.PropertyField(descriptionProp, new GUIContent("Description", "Notes about this story character (personality, attibutes, etc.)"));
+            EditorGUILayout.PropertyField(fontProp, new GUIContent("Font", "Font used for this character"));
 
-			if (t.portraits != null &&
+            if (t.portraits != null &&
 				t.portraits.Count > 0)
 			{
 				t.profileSprite = t.portraits[0];

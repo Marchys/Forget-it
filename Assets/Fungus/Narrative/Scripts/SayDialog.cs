@@ -369,8 +369,20 @@ namespace Fungus
 				nameText.color = color;
 			}
 		}
-		
-		public virtual void Clear()
+
+        public void SetCharacterFont(Font font)
+        {
+            if (font == null)
+            {
+                Debug.Log("Font not specified");
+                return;
+            }
+            if (storyText.font == font) return;
+            storyText.font = font;
+            return;
+        }
+
+        public virtual void Clear()
 		{
 			ClearStoryText();
 			
