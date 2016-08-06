@@ -1,3 +1,13 @@
+1.2.2
+----------
+
+Changes:
+- Textures set to the "Sprite" import mode will now use the Sprite type in resources.
+- Changes to assets in blacklist no longer trigger automatic scan.
+- When whitelist is enabled, changes to assets not in whitelist no longer trigger automatic scan.
+- Items in blacklist/not in whitelist no longer have heavy processing (should speed up scan time significantly on large projects).
+- Custom asset types are now cached so subsequent scans are faster.
+
 1.2.1
 ----------
 

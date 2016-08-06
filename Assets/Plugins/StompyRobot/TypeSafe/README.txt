@@ -7,7 +7,7 @@
         __/ | |                              
        |___/|_|                    
    
---- (C) Stompy Robot LTD 2015 ---
+--- (C) Stompy Robot LTD 2016 ---
 
 TypeSafe scans your project and generates strong-typed static classes from your resources, layers and tags. Using these classes instead of 'naked-strings' in your code will dramatically reduce the number of runtime errors caused by mistyping, moving or renaming resources, layers or tags.
 

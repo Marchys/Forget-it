@@ -139,6 +139,11 @@
             Open the TypeSafe welcome window.
             </summary>
         </member>
+        <member name="M:TypeSafe.Editor.TypeSafeApi.ClearAssetTypeCache">
+            <summary>
+            Clear the internal cache of custom asset types
+            </summary>
+        </member>
         <member name="P:TypeSafe.Editor.TypeSafeController.ItemsCompleted">
             <summary>
             Number of items in the current operation completed
