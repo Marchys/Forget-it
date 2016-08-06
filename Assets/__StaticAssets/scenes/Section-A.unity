@@ -179,7 +179,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1884606643
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e5cc15fe52edb834da8fee6f9bad5a2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -288,7 +288,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -2921.1333
-    y: -1001.64935
+    y: -1000.63513
     width: 131
     height: 40
   itemId: 104
@@ -374,7 +374,7 @@ MonoBehaviour:
     height: 2818.8503
   selectedBlock: {fileID: 1390555305}
   selectedCommands:
-  - {fileID: 1390555332}
+  - {fileID: 1390555337}
   variables: []
   description: Forguet-it
   stepPause: 0
@@ -685,7 +685,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -2915.8623
-    y: -1073.7323
+    y: -1074.7465
     width: 121
     height: 40
   itemId: 101
@@ -1549,11 +1549,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1599,11 +1599,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1649,11 +1649,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1699,11 +1699,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1749,11 +1749,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1799,11 +1799,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1849,11 +1849,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1949,11 +1949,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2049,11 +2049,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2099,11 +2099,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2149,11 +2149,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2199,11 +2199,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2274,11 +2274,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2299,11 +2299,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2324,11 +2324,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2399,11 +2399,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2449,11 +2449,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2474,11 +2474,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2499,11 +2499,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2549,11 +2549,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2574,11 +2574,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2649,7 +2649,7 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Detective
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
@@ -2674,11 +2674,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -2699,11 +2699,11 @@ MonoBehaviour:
         editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
         name: Characters
         _path: Assets/__StaticAssets/scenes/common/Characters.unity
-      fullPath: /Kolsov
+      fullPath: /Kolzov
       componentName: Fungus.Character, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 0
+      editorLocalId: 1711515127
       editorPrefabRelativePath: 
       version: 1
   _realSceneRootsForPostBuild: []
@@ -2804,7 +2804,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1884606643
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6a7a7453ec71eab479908cd5df9fad85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}

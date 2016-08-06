@@ -1,0 +1,288 @@
+fileFormatVersion: 2
+guid: 814431f146f2eb94faafaeae5a451b23
+timeCreated: 1463338826
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BarbaAsset
+    21300002: CabezaSuperior
+    21300004: Ceja
+    21300006: brazo
+    21300008: cuerpo
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BarbaAsset
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 70
+        width: 163
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77.5, y: 67.5}
+        - {x: -81.5, y: 55.5}
+        - {x: -81.5, y: 1.5}
+        - {x: -79.5, y: -8.5}
+        - {x: -74.5, y: -16.5}
+        - {x: -71.5, y: -16.5}
+        - {x: -61.5, y: -47.5}
+        - {x: -34.5, y: -67.5}
+        - {x: 22.5, y: -67.5}
+        - {x: 81.5, y: -15.5}
+        - {x: 81.5, y: 67.5}
+    - name: CabezaSuperior
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 8
+        width: 242
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 121, y: -78}
+        - {x: 121, y: -2}
+        - {x: 78, y: 109}
+        - {x: 52, y: 127}
+        - {x: -51, y: 127}
+        - {x: -66, y: 111}
+        - {x: -99, y: 54}
+        - {x: -117, y: 5}
+        - {x: -121, y: -37}
+        - {x: -121, y: -80}
+        - {x: -105, y: -127}
+        - {x: 96, y: -127}
+        - {x: 104, y: -110}
+        - {x: 103, y: -104}
+      - - {x: -50, y: -125}
+        - {x: -49, y: -127}
+        - {x: -44, y: -127}
+        - {x: -44, y: -125}
+        - {x: -46, y: -123}
+        - {x: -48, y: -123}
+      - - {x: 65, y: -123}
+        - {x: 68, y: -126}
+        - {x: 71, y: -125}
+        - {x: 71, y: -123}
+        - {x: 68, y: -120}
+        - {x: 66, y: -120}
+      - - {x: -23, y: -119}
+        - {x: -23, y: -122}
+        - {x: -22, y: -124}
+        - {x: -19, y: -124}
+        - {x: -15, y: -121}
+        - {x: -16, y: -118}
+        - {x: -21, y: -118}
+      - - {x: -3, y: -122}
+        - {x: 0, y: -121}
+        - {x: 0, y: -118}
+        - {x: -3, y: -117}
+        - {x: -5, y: -119}
+    - name: Ceja
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 116
+        width: 111
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14.5, y: -42.5}
+        - {x: 14.5, y: -44.5}
+        - {x: 22.5, y: -44.5}
+        - {x: 22.5, y: -42.5}
+        - {x: 20.5, y: -40.5}
+        - {x: 16.5, y: -40.5}
+      - - {x: -24.5, y: 12.5}
+        - {x: -55.5, y: 9.5}
+        - {x: -55.5, y: -28.5}
+        - {x: -53.5, y: -30.5}
+        - {x: -43.5, y: -39.5}
+        - {x: -41.5, y: -40.5}
+        - {x: 9.5, y: -40.5}
+        - {x: 54.5, y: -18.5}
+        - {x: 54.5, y: 12.5}
+      - - {x: 40.5, y: -14.5}
+        - {x: 40.5, y: -19.5}
+        - {x: 46.5, y: -19.5}
+        - {x: 49.5, y: -18.5}
+        - {x: 49.5, y: -14.5}
+        - {x: 47.5, y: -12.5}
+        - {x: 45.5, y: -12.5}
+      - - {x: 52.5, y: -14.5}
+        - {x: 54.5, y: -16.5}
+        - {x: 55.5, y: -16.5}
+        - {x: 55.5, y: -10.5}
+        - {x: 52.5, y: -11.5}
+      - - {x: -16.5, y: 44.5}
+        - {x: -16.5, y: 42.5}
+        - {x: -14.5, y: 40.5}
+        - {x: -12.5, y: 40.5}
+        - {x: -10.5, y: 42.5}
+        - {x: -10.5, y: 44.5}
+    - name: brazo
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 207
+        width: 283
+        height: 304
+      alignment: 9
+      pivot: {x: 0.47349823, y: 0.49342105}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: 110}
+        - {x: 9, y: 146}
+        - {x: -69, y: 154}
+        - {x: -131, y: 154}
+        - {x: -131, y: 105}
+        - {x: -43, y: 2}
+        - {x: 11, y: 4}
+        - {x: 29, y: -96}
+        - {x: 70, y: -140}
+        - {x: 83, y: -143}
+        - {x: 118, y: -143}
+        - {x: 149, y: -121}
+        - {x: 149, y: -34}
+        - {x: 146, y: -13}
+      - - {x: 8, y: -20}
+        - {x: 8, y: -21}
+        - {x: 11, y: -24}
+        - {x: 14, y: -23}
+        - {x: 14, y: -20}
+        - {x: 12, y: -18}
+        - {x: 10, y: -18}
+      - - {x: -75, y: 34}
+        - {x: -74, y: 32}
+        - {x: -71, y: 32}
+        - {x: -69, y: 33}
+        - {x: -69, y: 36}
+        - {x: -72, y: 39}
+        - {x: -75, y: 38}
+      - - {x: -91, y: 35}
+        - {x: -88, y: 36}
+        - {x: -88, y: 39}
+        - {x: -91, y: 40}
+        - {x: -93, y: 38}
+    - name: cuerpo
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 264
+        width: 594
+        height: 247
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6052632}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 151, y: -66.5}
+        - {x: 180, y: -75.5}
+        - {x: 210, y: -81.5}
+        - {x: 245, y: -84.5}
+        - {x: 250, y: -81.5}
+        - {x: 262, y: -67.5}
+        - {x: 262, y: -42.5}
+        - {x: 259, y: -35.5}
+        - {x: 248, y: -14.5}
+        - {x: 228, y: 12.5}
+        - {x: 203, y: 39.5}
+        - {x: 195, y: 46.5}
+        - {x: 157, y: 70.5}
+        - {x: 122, y: 83.5}
+        - {x: 105, y: 86.5}
+        - {x: 77, y: 88.5}
+        - {x: 57, y: 88.5}
+        - {x: 23, y: 85.5}
+        - {x: -11, y: 81.5}
+        - {x: -78, y: 73.5}
+        - {x: -99, y: 72.5}
+        - {x: -137, y: 63.5}
+        - {x: -153, y: 61.5}
+        - {x: -201, y: 45.5}
+        - {x: -236, y: 31.5}
+        - {x: -243, y: 27.5}
+        - {x: -260, y: 11.5}
+        - {x: -267, y: 0.5}
+        - {x: -270, y: -11.5}
+        - {x: -278, y: -51.5}
+        - {x: -287, y: -81.5}
+        - {x: -295, y: -103.5}
+        - {x: -297, y: -110.5}
+        - {x: -297, y: -137.5}
+        - {x: -295, y: -149.5}
+        - {x: 148, y: -149.5}
+        - {x: 148, y: -141.5}
+        - {x: 145, y: -105.5}
+        - {x: 142, y: -79.5}
+      - - {x: 294, y: -40.5}
+        - {x: 293, y: -44.5}
+        - {x: 293, y: -51.5}
+        - {x: 297, y: -51.5}
+        - {x: 297, y: -40.5}
+      - - {x: 259, y: 56.5}
+        - {x: 262, y: 57.5}
+        - {x: 262, y: 60.5}
+        - {x: 259, y: 61.5}
+        - {x: 257, y: 59.5}
+      - - {x: 218, y: 90.5}
+        - {x: 219, y: 88.5}
+        - {x: 222, y: 88.5}
+        - {x: 224, y: 89.5}
+        - {x: 224, y: 92.5}
+        - {x: 221, y: 95.5}
+        - {x: 218, y: 94.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

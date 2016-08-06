@@ -27,8 +27,22 @@ public sealed class SRSortingLayers {
         }
     }
     
+    public static global::TypeSafe.SortingLayer Kalsov {
+        get {
+            return __all[1];
+        }
+    }
+    
+    public static global::TypeSafe.SortingLayer StoryImages {
+        get {
+            return __all[2];
+        }
+    }
+    
     private static global::System.Collections.Generic.IList<global::TypeSafe.SortingLayer> __all = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.SortingLayer>(new global::TypeSafe.SortingLayer[] {
-                new global::TypeSafe.SortingLayer("Default", 0)});
+                new global::TypeSafe.SortingLayer("Default", 0),
+                new global::TypeSafe.SortingLayer("Kalsov", 1589573543),
+                new global::TypeSafe.SortingLayer("StoryImages", 1884606643)});
     
     public static global::System.Collections.Generic.IList<global::TypeSafe.SortingLayer> All {
         get {
