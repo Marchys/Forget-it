@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -28,7 +33,7 @@ namespace Fungus
 				return;
 
 			controlProp = serializedObject.FindProperty("control");
-			audioSourceProp = serializedObject.FindProperty("audioSource");
+			audioSourceProp = serializedObject.FindProperty("_audioSource");
 			startVolumeProp = serializedObject.FindProperty("startVolume");
 			endVolumeProp = serializedObject.FindProperty("endVolume");
 			fadeDurationProp = serializedObject.FindProperty("fadeDuration");

@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEngine;
 using System;
 using System.Collections;
@@ -42,6 +47,9 @@ namespace Fungus
 		[Tooltip("Wait for player to click before continuing.")]
 		public bool waitForClick = true;
 
+		[Tooltip("Stop playing voiceover when text finishes writing.")]
+		public bool stopVoiceover = true;
+
 		[Tooltip("Sets the active Say dialog with a reference to a Say Dialog object in the scene. All story text will now display using this Say Dialog.")]
 		public SayDialog setSayDialog;
 
@@ -82,9 +90,8 @@ namespace Fungus
 
 			sayDialog.SetCharacter(character, flowchart);
 			sayDialog.SetCharacterImage(portrait);
-            if (character != null) sayDialog.SetFont(character.font);
 
-            string displayText = storyText;
+			string displayText = storyText;
 
 			foreach (CustomTag ct in CustomTag.activeCustomTags)
 			{
@@ -97,7 +104,7 @@ namespace Fungus
 
 			string subbedText = flowchart.SubstituteVariables(displayText);
 
-			sayDialog.Say(subbedText, !extendPrevious, waitForClick, fadeWhenDone, voiceOverClip, delegate {
+            sayDialog.Say(subbedText, !extendPrevious, waitForClick, fadeWhenDone, stopVoiceover, voiceOverClip, delegate {
 				Continue();
 			});
 		}

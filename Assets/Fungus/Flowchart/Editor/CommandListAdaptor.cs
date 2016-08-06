@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 // Copyright (c) 2012-2013 Rotorz Limited. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
@@ -393,7 +398,17 @@ namespace Fungus
 			}
 			else
 			{
-				GUI.Label(commandLabelRect, commandName, commandLabelStyle);
+				string commandNameLabel;
+				if (flowchart.showLineNumbers)
+				{
+					commandNameLabel = command.commandIndex.ToString() + ": " + commandName;
+				}
+				else
+				{
+					commandNameLabel = commandName;
+				}
+
+				GUI.Label(commandLabelRect, commandNameLabel, commandLabelStyle);
 			}
 			
 			if (command.executingIconTimer > Time.realtimeSinceStartup)
@@ -421,9 +436,8 @@ namespace Fungus
 			}
 			else
 			{
-				summaryRect.x += commandNameWidth;
-				summaryRect.width -= commandNameWidth;
-				summaryRect.width -= 5;
+				summaryRect.x += commandNameWidth + 5;
+				summaryRect.width -= commandNameWidth + 5;
 			}
 			
 			GUIStyle summaryStyle = new GUIStyle();
@@ -456,41 +470,6 @@ namespace Fungus
 					;
 		}
 		
-		private void ResetValue(SerializedProperty element) {
-			switch (element.type) {
-			case "string":
-				element.stringValue = "";
-				break;
-			case "Vector2f":
-				element.vector2Value = Vector2.zero;
-				break;
-			case "Vector3f":
-				element.vector3Value = Vector3.zero;
-				break;
-			case "Rectf":
-				element.rectValue = new Rect();
-				break;
-			case "Quaternionf":
-				element.quaternionValue = Quaternion.identity;
-				break;
-			case "int":
-				element.intValue = 0;
-				break;
-			case "float":
-				element.floatValue = 0f;
-				break;
-			case "UInt8":
-				element.boolValue = false;
-				break;
-			case "ColorRGBA":
-				element.colorValue = Color.black;
-				break;
-				
-			default:
-				if (element.type.StartsWith("PPtr"))
-					element.objectReferenceValue = null;
-				break;
-			}
-		}
+		
 	}
 }

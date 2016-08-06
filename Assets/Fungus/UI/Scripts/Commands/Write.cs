@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -17,7 +22,7 @@ namespace Fungus
 		public GameObject textObject;
 
 		[Tooltip("String value to assign to the text object")]
-		public StringData text;
+		public StringDataMulti text;
 
 		[Tooltip("Notes about this story text for other authors, localization, etc.")]
 		public string description;
@@ -86,14 +91,14 @@ namespace Fungus
 
 			if (!waitUntilFinished)
 			{
-				writer.Write(newText, clearText, false, null, null);
+				StartCoroutine(writer.Write(newText, clearText, false, true, null, null));
 				Continue();
 			}
 			else
 			{
-				writer.Write(newText, clearText, false, null,
+				StartCoroutine(writer.Write(newText, clearText, false, true, null,
 				             () => { Continue (); }
-				);
+				));
 			}
 		}
 

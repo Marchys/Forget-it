@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEditor;
 using UnityEngine;
 using System.Collections;
@@ -15,11 +20,10 @@ namespace Fungus
 		protected SerializedProperty soundEffectProp;
 		protected SerializedProperty portraitsProp;
 		protected SerializedProperty portraitsFaceProp;
-        protected SerializedProperty descriptionProp;
+		protected SerializedProperty descriptionProp;
 		protected SerializedProperty setSayDialogProp;
-        protected SerializedProperty fontProp;
 
-        protected virtual void OnEnable()
+		protected virtual void OnEnable()
 		{
 			nameTextProp = serializedObject.FindProperty ("nameText");
 			nameColorProp = serializedObject.FindProperty ("nameColor");
@@ -27,9 +31,8 @@ namespace Fungus
 			portraitsProp = serializedObject.FindProperty ("portraits");
 			portraitsFaceProp = serializedObject.FindProperty ("portraitsFace");
 			descriptionProp = serializedObject.FindProperty ("description");
-            fontProp = serializedObject.FindProperty("font");
-            setSayDialogProp = serializedObject.FindProperty("setSayDialog");
-        }
+			setSayDialogProp = serializedObject.FindProperty("setSayDialog");
+		}
 
 		public override void OnInspectorGUI() 
 		{
@@ -38,13 +41,12 @@ namespace Fungus
 			Character t = target as Character;
 
 			EditorGUILayout.PropertyField(nameTextProp, new GUIContent("Name Text", "Name of the character display in the dialog"));
-            EditorGUILayout.PropertyField(nameColorProp, new GUIContent("Name Color", "Color of name text display in the dialog"));
+			EditorGUILayout.PropertyField(nameColorProp, new GUIContent("Name Color", "Color of name text display in the dialog"));
 			EditorGUILayout.PropertyField(soundEffectProp, new GUIContent("Sound Effect", "Sound to play when the character is talking. Overrides the setting in the Dialog."));
-            EditorGUILayout.PropertyField(fontProp, new GUIContent("Font", "Font used for this character"));
-            EditorGUILayout.PropertyField(setSayDialogProp);
+			EditorGUILayout.PropertyField(setSayDialogProp);
 			EditorGUILayout.PropertyField(descriptionProp, new GUIContent("Description", "Notes about this story character (personality, attibutes, etc.)"));
 
-            if (t.portraits != null &&
+			if (t.portraits != null &&
 				t.portraits.Count > 0)
 			{
 				t.profileSprite = t.portraits[0];

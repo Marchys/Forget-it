@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
@@ -217,7 +222,7 @@ namespace Fungus
 		
 		protected virtual void DrawFlowchartView(Flowchart flowchart)
 		{
-			Block[] blocks = flowchart.GetComponentsInChildren<Block>(true);
+			Block[] blocks = flowchart.GetComponents<Block>();
 
 			foreach (Block block in blocks)
 			{
@@ -559,8 +564,8 @@ namespace Fungus
 				return;
 			}
 
-			// Select block when node is clicked
-			if (Event.current.button == 0 && 
+            // Select block when node is clicked
+            if (Event.current.button == 0 && 
 		    	Event.current.type == EventType.MouseDown &&
 			    !mouseOverVariables)
 			{

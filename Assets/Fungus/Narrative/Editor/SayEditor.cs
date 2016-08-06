@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -80,6 +85,7 @@ namespace Fungus
 		protected SerializedProperty extendPreviousProp;
 		protected SerializedProperty fadeWhenDoneProp;
 		protected SerializedProperty waitForClickProp;
+		protected SerializedProperty stopVoiceoverProp;
 		protected SerializedProperty setSayDialogProp;
 
 		protected virtual void OnEnable()
@@ -97,6 +103,7 @@ namespace Fungus
 			extendPreviousProp = serializedObject.FindProperty("extendPrevious");
 			fadeWhenDoneProp = serializedObject.FindProperty("fadeWhenDone");
 			waitForClickProp = serializedObject.FindProperty("waitForClick");
+			stopVoiceoverProp = serializedObject.FindProperty("stopVoiceover");
 			setSayDialogProp = serializedObject.FindProperty("setSayDialog");
 
 			if (blackTex == null)
@@ -109,17 +116,21 @@ namespace Fungus
 		{
 			DestroyImmediate(blackTex);
 		}
-		
+
 		public override void DrawCommandGUI() 
 		{
 			serializedObject.Update();
 
 			bool showPortraits = false;
+            CommandEditor.ObjectField<Character>(characterProp,
+                                                new GUIContent("Character", "Character that is speaking"),
+                                                new GUIContent("<None>"),
+                                                Character.activeCharacters);
 
-			CommandEditor.ObjectField<Character>(characterProp, 
-			                                     new GUIContent("Character", "Character that is speaking"), 
-			                                     new GUIContent("<None>"),
-			                                     Character.activeCharacters);
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.PrefixLabel(" ");
+            characterProp.objectReferenceValue = (Character) EditorGUILayout.ObjectField(characterProp.objectReferenceValue, typeof(Character), true);
+			EditorGUILayout.EndHorizontal();
 
 			Say t = target as Say;
 
@@ -190,6 +201,7 @@ namespace Fungus
 
 			EditorGUILayout.PropertyField(fadeWhenDoneProp);
 			EditorGUILayout.PropertyField(waitForClickProp);
+			EditorGUILayout.PropertyField(stopVoiceoverProp);
 			EditorGUILayout.PropertyField(setSayDialogProp);
 
 			if (showPortraits && t.portrait != null)

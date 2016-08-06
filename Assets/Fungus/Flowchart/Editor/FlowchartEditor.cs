@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEditor;
 using UnityEngine;
 using System.Collections;
@@ -25,7 +30,10 @@ namespace Fungus
 		protected SerializedProperty saveSelectionProp;
 		protected SerializedProperty localizationIdProp;
 		protected SerializedProperty variablesProp;
-		protected SerializedProperty hideCommandsProp;
+		protected SerializedProperty showLineNumbersProp;
+        protected SerializedProperty hideCommandsProp;
+        protected SerializedProperty luaEnvironmentProp;
+        protected SerializedProperty luaBindingNameProp;
 
 		protected Texture2D addTexture;
 				
@@ -41,7 +49,10 @@ namespace Fungus
 			saveSelectionProp = serializedObject.FindProperty("saveSelection");
 			localizationIdProp = serializedObject.FindProperty("localizationId");
 			variablesProp = serializedObject.FindProperty("variables");
+			showLineNumbersProp = serializedObject.FindProperty("showLineNumbers");
 			hideCommandsProp = serializedObject.FindProperty("hideCommands");
+            luaEnvironmentProp = serializedObject.FindProperty("luaEnvironment");
+            luaBindingNameProp = serializedObject.FindProperty("luaBindingName");
 
 			addTexture = Resources.Load("Icons/add_small") as Texture2D;
 		}
@@ -60,6 +71,9 @@ namespace Fungus
 			EditorGUILayout.PropertyField(stepPauseProp);
 			EditorGUILayout.PropertyField(saveSelectionProp);
 			EditorGUILayout.PropertyField(localizationIdProp);
+			EditorGUILayout.PropertyField(showLineNumbersProp);
+            EditorGUILayout.PropertyField(luaEnvironmentProp);
+            EditorGUILayout.PropertyField(luaBindingNameProp);
 
 			// Show list of commands to hide in Add Command menu
 			ReorderableListGUI.Title(new GUIContent(hideCommandsProp.displayName, hideCommandsProp.tooltip));

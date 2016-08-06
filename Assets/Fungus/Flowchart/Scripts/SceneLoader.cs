@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 ﻿using UnityEngine;
 #if UNITY_5_0 || UNITY_5_1 || UNITY_5_2
 #else
@@ -48,17 +53,6 @@ namespace Fungus
 			       !displayedImage)
 			{
 				yield return new WaitForEndOfFrame();
-			}
-
-			// Sprites tend to take up most of the memory in a Fungus game, so destroy all sprite objects
-			// first to free up memory for loading in the next scene.
-			SpriteRenderer[] renderers = GameObject.FindObjectsOfType<SpriteRenderer>();
-			foreach (SpriteRenderer renderer in renderers)
-			{
-				if (renderer != null)
-				{
-					DestroyImmediate(renderer.gameObject);
-				}
 			}
 
 			// Wait for objects to actually be destroyed at end of run loop

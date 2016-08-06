@@ -1,4 +1,10 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using System.Collections;
 
 namespace Fungus
@@ -7,10 +13,11 @@ namespace Fungus
 	             "Set Language", 
 	             "Set the active language for the scene. A Localization object with a localization file must be present in the scene.")]
 	[AddComponentMenu("")]
-	public class SetLanguage : Command 
+	[ExecuteInEditMode]
+	public class SetLanguage : Command
 	{
 		[Tooltip("Code of the language to set. e.g. ES, DE, JA")]
-		public string languageCode; 
+		public StringData _languageCode = new StringData(); 
 
 		public static string mostRecentLanguage = "";
 
@@ -19,11 +26,11 @@ namespace Fungus
 			Localization localization = GameObject.FindObjectOfType<Localization>();
 			if (localization != null)
 			{
-				localization.SetActiveLanguage(languageCode, true);
+				localization.SetActiveLanguage(_languageCode.Value, true);
 
 				// Cache the most recently set language code so we can continue to 
 				// use the same language in subsequent scenes.
-				mostRecentLanguage = languageCode;
+				mostRecentLanguage = _languageCode.Value;
 			}
 
 			Continue();
@@ -31,12 +38,27 @@ namespace Fungus
 
 		public override string GetSummary()
 		{
-			return languageCode;
+			return _languageCode.Value;
 		}
 
 		public override Color GetButtonColor()
 		{
 			return new Color32(184, 210, 235, 255);
 		}
+
+		#region Backwards compatibility
+
+		[HideInInspector] [FormerlySerializedAs("languageCode")] public string languageCodeOLD = "";
+
+		protected virtual void OnEnable()
+		{
+			if (languageCodeOLD != "")
+			{
+				_languageCode.Value = languageCodeOLD;
+				languageCodeOLD = "";
+			}
+		}
+
+		#endregion
 	}
 }

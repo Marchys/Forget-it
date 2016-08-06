@@ -1,4 +1,10 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEngine;
+using UnityEngine.Serialization;
 using System;
 using System.Collections;
 
@@ -8,16 +14,17 @@ namespace Fungus
 	             "Fade Sprite", 
 	             "Fades a sprite to a target color over a period of time.")]
 	[AddComponentMenu("")]
-	public class FadeSprite : Command 
+	[ExecuteInEditMode]
+	public class FadeSprite : Command
 	{
 		[Tooltip("Sprite object to be faded")]
 		public SpriteRenderer spriteRenderer;
 
 		[Tooltip("Length of time to perform the fade")]
-		public float duration = 1f;
+		public FloatData _duration = new FloatData(1f);
 
 		[Tooltip("Target color to fade to. To only fade transparency level, set the color to white and set the alpha to required transparency.")]
-		public Color targetColor = Color.white;
+		public ColorData _targetColor = new ColorData(Color.white);
 
 		[Tooltip("Wait until the fade has finished before executing the next command")]
 		public bool waitUntilFinished = true;
@@ -37,7 +44,7 @@ namespace Fungus
 				cameraController.waiting = true;
 			}
 
-			SpriteFader.FadeSprite(spriteRenderer, targetColor, duration, Vector2.zero, delegate {
+			SpriteFader.FadeSprite(spriteRenderer, _targetColor.Value, _duration.Value, Vector2.zero, delegate {
 				if (waitUntilFinished)
 				{
 					cameraController.waiting = false;
@@ -58,13 +65,34 @@ namespace Fungus
 				return "Error: No sprite renderer selected";
 			}
 
-			return spriteRenderer.name + " to " + targetColor.ToString();
+			return spriteRenderer.name + " to " + _targetColor.Value.ToString();
 		}
 
 		public override Color GetButtonColor()
 		{
 			return new Color32(221, 184, 169, 255);
 		}
+
+		#region Backwards compatibility
+
+		[HideInInspector] [FormerlySerializedAs("duration")] public float durationOLD;
+		[HideInInspector] [FormerlySerializedAs("targetColor")] public Color targetColorOLD;
+
+		protected virtual void OnEnable()
+		{
+			if (durationOLD != default(float))
+			{
+				_duration.Value = durationOLD;
+				durationOLD = default(float);
+			}
+			if (targetColorOLD != default(Color))
+			{
+				_targetColor.Value = targetColorOLD;
+				targetColorOLD = default(Color);
+			}
+		}
+
+		#endregion
 	}
 
 }

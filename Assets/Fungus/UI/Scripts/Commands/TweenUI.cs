@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -88,7 +93,7 @@ namespace Fungus
 				{
 					return "Error: No targetObjects selected";
 				}
-				return targetObjects[0].name + " = " + GetSummaryValue() + " alpha";
+				return targetObjects[0].name + " = " + GetSummaryValue();
 			}
 			
 			string objectList = "";
@@ -109,7 +114,7 @@ namespace Fungus
 				}
 			}
 			
-			return objectList + " = " + GetSummaryValue() + " alpha";
+			return objectList + " = " + GetSummaryValue();
 		}
 		
 		public override Color GetButtonColor()

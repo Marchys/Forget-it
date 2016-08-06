@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -50,6 +55,17 @@ namespace Fungus
 			int selectedIndex = 0;
 
 			Variable selectedVariable = property.objectReferenceValue as Variable;
+
+			// When there are multiple Flowcharts in a scene with variables, switching
+			// between the Flowcharts can cause the wrong variable property
+			// to be inspected for a single frame. This has the effect of causing private
+			// variable references to be set to null when inspected. When this condition 
+			// occurs we just skip displaying the property for this frame.
+			if (selectedVariable != null &&
+				selectedVariable.gameObject != flowchart.gameObject)
+			{
+				return;
+			}
 
 			foreach (Variable v in variables)
 			{
@@ -209,7 +225,7 @@ namespace Fungus
 
 		protected virtual void DrawSingleLineProperty(Rect rect, GUIContent label, SerializedProperty referenceProp, SerializedProperty valueProp, Flowchart flowchart)
 		{
-			const int popupWidth = 100;
+			const int popupWidth = 17;
 			
 			Rect controlRect = EditorGUI.PrefixLabel(rect, label);
 			Rect valueRect = controlRect;
@@ -284,9 +300,13 @@ namespace Fungus
 	public class FloatDataDrawer : VariableDataDrawer<FloatVariable>
 	{}
 
-	[CustomPropertyDrawer (typeof(StringData))]
-	public class StringDataDrawer : VariableDataDrawer<StringVariable>
-	{}
+    [CustomPropertyDrawer (typeof(StringData))]
+    public class StringDataDrawer : VariableDataDrawer<StringVariable>
+    {}
+
+    [CustomPropertyDrawer (typeof(StringDataMulti))]
+    public class StringDataMultiDrawer : VariableDataDrawer<StringVariable>
+    {}
 
 	[CustomPropertyDrawer (typeof(ColorData))]
 	public class ColorDataDrawer : VariableDataDrawer<ColorVariable>
@@ -318,5 +338,17 @@ namespace Fungus
 	
 	[CustomPropertyDrawer (typeof(ObjectData))]
 	public class ObjectDataDrawer : VariableDataDrawer<ObjectVariable>
+	{}
+
+	[CustomPropertyDrawer (typeof(AnimatorData))]
+	public class AnimatorDataDrawer : VariableDataDrawer<AnimatorVariable>
+	{}
+
+	[CustomPropertyDrawer (typeof(TransformData))]
+	public class TransformDataDrawer : VariableDataDrawer<TransformVariable>
+	{}
+
+	[CustomPropertyDrawer (typeof(AudioSourceData))]
+	public class AudioSourceDrawer : VariableDataDrawer<AudioSourceVariable>
 	{}
 }

@@ -1,9 +1,15 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Reflection;
+using System.Text;
 
 namespace Fungus
 {
@@ -13,23 +19,26 @@ namespace Fungus
 	 */
 	public interface IWriterListener
 	{
-		// Called when a user input event (e.g. a click) has been handled by the Writer
+		///
+		/// Called when a user input event (e.g. a click) has been handled by the Writer.
+		///
 		void OnInput();
 
-		// Called when the Writer starts writing new text
-		// An optional audioClip sound effect can be supplied (e.g. for voiceover)
+		/// Called when the Writer starts writing new text
+		/// <param name="audioClip">An optional audioClip sound effect can be supplied (e.g. for voiceover)</param>
 		void OnStart(AudioClip audioClip);
 
-		// Called when the Writer has paused writing text (e.g. on a {wi} tag)
+		/// Called when the Writer has paused writing text (e.g. on a {wi} tag).
 		void OnPause();
 
-		// Called when the Writer has resumed writing text
+		/// Called when the Writer has resumed writing text.
 		void OnResume();
 
-		// Called when the Writer has finshed writing text
-		void OnEnd();
+		/// Called when the Writer has finshed writing text.
+		/// <param name="stopAudio">Controls whether audio should be stopped when writing ends.</param>
+		void OnEnd(bool stopAudio);
 
-		// Called every time the Writer writes a new character glyph
+		/// Called every time the Writer writes a new character glyph.
 		void OnGlyph();
 	}
 	
@@ -79,10 +88,21 @@ namespace Fungus
 		protected bool italicActive = false;
 		protected bool colorActive = false;
 		protected string colorText = "";
+		protected bool sizeActive = false;
+		protected float sizeValue = 16f;
 		protected bool inputFlag;
 		protected bool exitFlag;
 
 		protected List<IWriterListener> writerListeners = new List<IWriterListener>();
+
+        protected StringBuilder openString = new StringBuilder(256);
+        protected StringBuilder closeString = new StringBuilder(256);
+        protected StringBuilder leftString = new StringBuilder(1024);
+        protected StringBuilder rightString = new StringBuilder(1024);
+        protected StringBuilder outputString = new StringBuilder(1024);
+
+        protected string hiddenColorOpen = "";
+        protected string hiddenColorClose = "";
 
 		public string text 
 		{
@@ -168,6 +188,11 @@ namespace Fungus
 
 		protected virtual void Start()
 		{
+            // Cache the hidden color string
+            Color32 c = hiddenTextColor;
+            hiddenColorOpen = String.Format("<color=#{0:X2}{1:X2}{2:X2}{3:X2}>", c.r, c.g, c.b, c.a);
+            hiddenColorClose = "</color>";
+
 			if (forceRichText)
 			{
 				if (textUI != null)
@@ -206,50 +231,58 @@ namespace Fungus
 			return false;
 		}
 		
-		protected virtual string OpenMarkup()
+		protected virtual void UpdateOpenMarkup()
 		{
-			string tagText = "";
+            openString.Length = 0;
 			
 			if (SupportsRichText())
 			{
+				if (sizeActive)
+				{
+                    openString.Append("<size=");
+                    openString.Append(sizeValue);
+                    openString.Append(">"); 
+				}
 				if (colorActive)
 				{
-					tagText += "<color=" + colorText + ">"; 
+                    openString.Append("<color=");
+                    openString.Append(colorText);
+                    openString.Append(">"); 
 				}
 				if (boldActive)
 				{
-					tagText += "<b>"; 
+                    openString.Append("<b>"); 
 				}
 				if (italicActive)
 				{
-					tagText += "<i>"; 
+                    openString.Append("<i>"); 
 				}			
 			}
-			
-			return tagText;
 		}
 		
-		protected virtual string CloseMarkup()
+		protected virtual void UpdateCloseMarkup()
 		{
-			string closeText = "";
+            closeString.Length = 0;
 			
 			if (SupportsRichText())
 			{
 				if (italicActive)
 				{
-					closeText += "</i>"; 
+                    closeString.Append("</i>"); 
 				}			
 				if (boldActive)
 				{
-					closeText += "</b>"; 
+                    closeString.Append("</b>"); 
 				}
 				if (colorActive)
 				{
-					closeText += "</color>"; 
+                    closeString.Append("</color>"); 
+				}
+				if (sizeActive)
+				{
+                    closeString.Append("</size>"); 
 				}
 			}
-			
-			return closeText;		
 		}
 
 		public virtual void SetTextColor(Color textColor)
@@ -304,7 +337,7 @@ namespace Fungus
 			}
 		}
 
-		public virtual void Write(string content, bool clear, bool waitForInput, AudioClip audioClip, Action onComplete)
+		public virtual IEnumerator Write(string content, bool clear, bool waitForInput, bool stopAudio, AudioClip audioClip, Action onComplete)
 		{
 			if (clear)
 			{
@@ -313,7 +346,7 @@ namespace Fungus
 			
 			if (!HasTextObject())
 			{
-				return;
+                yield break;
 			}
 
 			// If this clip is null then WriterAudio will play the default sound effect (if any)
@@ -328,7 +361,9 @@ namespace Fungus
 			TextTagParser tagParser = new TextTagParser();
 			List<TextTagParser.Token> tokens = tagParser.Tokenize(tokenText);
 
-			StartCoroutine(ProcessTokens(tokens, onComplete));
+            gameObject.SetActive(true);
+
+			yield return StartCoroutine(ProcessTokens(tokens, stopAudio, onComplete));
 		}
 
 	    virtual protected bool CheckParamCount(List<string> paramList, int count) 
@@ -358,13 +393,15 @@ namespace Fungus
 	        return false;
 	    }
 
-	    protected virtual IEnumerator ProcessTokens(List<TextTagParser.Token> tokens, Action onComplete)
+		protected virtual IEnumerator ProcessTokens(List<TextTagParser.Token> tokens, bool stopAudio, Action onComplete)
 		{
 			// Reset control members
 			boldActive = false;
 			italicActive = false;
 			colorActive = false;
+			sizeActive = false;
 			colorText = "";
+			sizeValue = 16f;
 			currentPunctuationPause = punctuationPause;
 			currentWritingSpeed = writingSpeed;
 
@@ -409,7 +446,18 @@ namespace Fungus
 				case TextTagParser.TokenType.ColorEnd:
 					colorActive = false;
 					break;
-					
+
+				case TextTagParser.TokenType.SizeStart:
+					if (TryGetSingleParam(token.paramList, 0, 16f, out sizeValue))
+					{
+						sizeActive = true;
+					}
+					break;
+
+				case TextTagParser.TokenType.SizeEnd:
+					sizeActive = false;
+					break;
+
 				case TextTagParser.TokenType.Wait:
                     yield return StartCoroutine(DoWait(token.paramList));
 			        break;
@@ -445,7 +493,8 @@ namespace Fungus
 				case TextTagParser.TokenType.Exit:
 					exitFlag = true;
 					break;
-					
+
+
 				case TextTagParser.TokenType.Message:
                     if (CheckParamCount(token.paramList, 1)) 
 					{
@@ -560,7 +609,7 @@ namespace Fungus
 			isWaitingForInput = false;
 			isWriting = false;
 
-			NotifyEnd();
+			NotifyEnd(stopAudio);
 
 			if (onComplete != null)
 			{
@@ -583,14 +632,14 @@ namespace Fungus
 			{
 				param = param.TrimStart(' ', '\t', '\r', '\n');
 			}
-				
+			
             string startText = text;
-            string openText = OpenMarkup();
-            string closeText = CloseMarkup();
+            UpdateOpenMarkup();
+            UpdateCloseMarkup();
 
             float timeAccumulator = Time.deltaTime;
 
-            for (int i = 0; i < param.Length; ++i)
+            for (int i = 0; i < param.Length + 1; ++i)
             {
                 // Exit immediately if the exit flag has been set
                 if (exitFlag)
@@ -598,11 +647,9 @@ namespace Fungus
                     break;
                 }
 
-                string left = "";
-                string right = "";
-
-                PartitionString(writeWholeWords, param, i, out left, out right);
-                text = ConcatenateString(startText, openText, closeText, left, right);
+                PartitionString(writeWholeWords, param, i);
+                ConcatenateString(startText);
+                text = outputString.ToString();
 
                 NotifyGlyph();
 
@@ -613,9 +660,9 @@ namespace Fungus
                 }
 
                 // Punctuation pause
-                if (left.Length > 0 && 
-                	right.Length > 0 &&
-                	IsPunctuation(left.Substring(left.Length - 1)[0]))
+                if (leftString.Length > 0 && 
+                	rightString.Length > 0 &&
+                    IsPunctuation(leftString.ToString(leftString.Length - 1, 1)[0]))
                 {
                     yield return StartCoroutine(DoWait(currentPunctuationPause));
                 }
@@ -635,47 +682,58 @@ namespace Fungus
             }
 	    }
 
-	    protected void PartitionString(bool wholeWords, string inputString, int i, out string left, out string right)
+	    protected void PartitionString(bool wholeWords, string inputString, int i)
 		{
-			left = "";
-			right = "";
+            leftString.Length = 0;
+            rightString.Length = 0;
+
+            // Reached last character
+            leftString.Append(inputString);
+            if (i >= inputString.Length)
+            {
+                return;
+            }
+
+            rightString.Append(inputString);
 
 			if (wholeWords)
 			{
 				// Look ahead to find next whitespace or end of string
-				for (int j = i; j < inputString.Length; ++j)
+				for (int j = i; j < inputString.Length + 1; ++j)
 				{
-					if (Char.IsWhiteSpace(inputString[j]) ||
-					    j == inputString.Length - 1)
+                    if (j == inputString.Length || Char.IsWhiteSpace(inputString[j]))
 					{
-						left = inputString.Substring(0, j + 1);
-						right = inputString.Substring(j + 1, inputString.Length - j - 1);
+                        leftString.Length = j;
+                        rightString.Remove(0, j);
 						break;
 					}
 				}
 			}
 			else
 			{
-				left = inputString.Substring(0, i + 1);
-				right = inputString.Substring(i + 1);
+                leftString.Remove(i, inputString.Length - i);
+                rightString.Remove(0, i);
 			}
 		}
 
-		protected string ConcatenateString(string startText, string openText, string closeText, string leftText, string rightText)
+		protected void ConcatenateString(string startText)
 		{
-			string tempText = startText + openText + leftText + closeText;
-		
-			Color32 c = hiddenTextColor;
-			string hiddenColor = String.Format("#{0:X2}{1:X2}{2:X2}{3:X2}", c.r, c.g, c.b, c.a);
+            outputString.Length = 0;
+
+            // string tempText = startText + openText + leftText + closeText;
+            outputString.Append(startText);
+            outputString.Append(openString);
+            outputString.Append(leftString);
+            outputString.Append(closeString);
 
 			// Make right hand side text hidden
 			if (SupportsRichText() &&
-			    rightText.Length > 0)
+			    rightString.Length > 0)
 			{
-				tempText += "<color=" + hiddenColor + ">" + rightText + "</color>";
+                outputString.Append(hiddenColorOpen);
+                outputString.Append(rightString);
+                outputString.Append(hiddenColorClose);
 			}
-
-			return tempText;
 		}
 
 		public virtual string GetTagHelp()
@@ -763,7 +821,7 @@ namespace Fungus
 
 			if (go != null)
 			{
-				iTween.ShakePosition(go, axis, time);
+                iTween.ShakePosition(go, axis, time);
 			}
 		}
 		
@@ -821,11 +879,11 @@ namespace Fungus
 			}
 		}
 
-		protected virtual void NotifyEnd()
+		protected virtual void NotifyEnd(bool stopAudio)
 		{
 			foreach (IWriterListener writerListener in writerListeners)
 			{
-				writerListener.OnEnd();
+				writerListener.OnEnd(stopAudio);
 			}
 		}
 

@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 ﻿using UnityEngine;
 using UnityEditor;
 using System.IO;
@@ -13,6 +18,13 @@ namespace Fungus
 		{
 			GameObject go = SpawnPrefab("Flowchart");
 			go.transform.position = Vector3.zero;
+
+			// This is the latest version of Flowchart, so no need to update.
+			Flowchart flowchart = go.GetComponent<Flowchart>();
+			if (flowchart != null)
+			{
+				flowchart.version = Flowchart.CURRENT_VERSION;
+			}
 
 			// Only the first created Flowchart in the scene should have a default GameStarted block
 			if (GameObject.FindObjectsOfType<Flowchart>().Length > 1)
@@ -42,7 +54,7 @@ namespace Fungus
 
 			AssetDatabase.ExportPackage(folders, path, ExportPackageOptions.Recurse);
 		}
-
+            
 		public static GameObject SpawnPrefab(string prefabName)
 		{
 			GameObject prefab = Resources.Load<GameObject>(prefabName);

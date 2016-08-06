@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 ﻿using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -5,6 +10,8 @@ using UnityEditor;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Text;
 using System.IO;
 using Ideafixxxer.CsvParser;
 
@@ -22,7 +29,7 @@ namespace Fungus
 	/**
 	 * Multi-language localization support.
 	 */
-	public class Localization : MonoBehaviour
+	public class Localization : MonoBehaviour, StringSubstituter.ISubstitutionHandler
 	{
 		/**
 		 * Language to use at startup, usually defined by a two letter language code (e.g DE = German)
@@ -56,7 +63,23 @@ namespace Fungus
 		[NonSerialized]
 		public string notificationText = "";
 
+		protected bool initialized;
+
+		#if UNITY_5_4_OR_NEWER
+		protected virtual void Awake()
+		{
+			UnityEngine.SceneManagement.SceneManager.activeSceneChanged += (A, B) => {
+				LevelWasLoaded();
+			};
+		}
+		#else
 		public virtual void OnLevelWasLoaded(int level) 
+		{
+			LevelWasLoaded();
+		}
+		#endif
+
+		protected virtual void LevelWasLoaded()
 		{
 			// Check if a language has been selected using the Set Language command in a previous scene.
 			if (SetLanguage.mostRecentLanguage != "")
@@ -68,13 +91,29 @@ namespace Fungus
 
 		public virtual void Start()
 		{
+			Init();
+		}
+
+		/**
+		 * String subsitution can happen during the Start of another component, so we
+		 * may need to call Init() from other methods.
+		 */
+		protected virtual void Init()
+		{
+			if (initialized)
+			{
+				return;
+			}
+
 			CacheLocalizeableObjects();
 
 			if (localizationFile != null &&
-			    localizationFile.text.Length > 0)
+				localizationFile.text.Length > 0)
 			{
 				SetActiveLanguage(activeLanguage);
 			}
+
+			initialized = true;
 		}
 
 		public virtual void ClearLocalizeableCache()
@@ -190,7 +229,7 @@ namespace Fungus
 			Flowchart[] flowcharts = GameObject.FindObjectsOfType<Flowchart>();
 			foreach (Flowchart flowchart in flowcharts)
 			{
-				Block[] blocks = flowchart.GetComponentsInChildren<Block>();
+				Block[] blocks = flowchart.GetComponents<Block>();
 				foreach (Block block in blocks)
 				{
 					foreach (Command command in block.commandList)
@@ -486,6 +525,39 @@ namespace Fungus
 			}
 
 			notificationText = "Updated " + updatedCount + " standard text items.";
+		}
+
+		/**
+		 * Implementation of StringSubstituter.ISubstitutionHandler.
+		 * Relaces tokens of the form {$KeyName} with the localized value corresponding to that key.
+		 */
+		public virtual bool SubstituteStrings(StringBuilder input)
+		{
+			// This method could be called from the Start method of another component, so we
+			// may need to initilize the localization system.
+			Init();
+
+			// Instantiate the regular expression object.
+			Regex r = new Regex("{\\$.*?}");
+
+            bool modified = false;
+
+			// Match the regular expression pattern against a text string.
+            var results = r.Matches(input.ToString());
+			foreach (Match match in results)
+			{
+				string key = match.Value.Substring(2, match.Value.Length - 3);
+
+				// Next look for matching localized string
+				string localizedString = Localization.GetLocalizedString(key);
+				if (localizedString != null)
+				{
+					input.Replace(match.Value, localizedString);
+                    modified = true;
+				}
+			}
+
+            return modified;
 		}
 	}
 

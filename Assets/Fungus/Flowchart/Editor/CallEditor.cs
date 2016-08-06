@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEditor;
 using UnityEngine;
 using System.Collections;
@@ -10,6 +15,7 @@ namespace Fungus
 	{
 		protected SerializedProperty targetFlowchartProp;
 		protected SerializedProperty targetBlockProp;
+		protected SerializedProperty startIndexProp;
 		protected SerializedProperty callModeProp;
 
 		protected virtual void OnEnable()
@@ -19,6 +25,7 @@ namespace Fungus
 
 			targetFlowchartProp = serializedObject.FindProperty("targetFlowchart");
 			targetBlockProp = serializedObject.FindProperty("targetBlock");
+			startIndexProp = serializedObject.FindProperty("startIndex");
 			callModeProp = serializedObject.FindProperty("callMode");
 		}
 
@@ -46,6 +53,8 @@ namespace Fungus
 				                       new GUIContent("Target Block", "Block to call"), 
 									   new GUIContent("<None>"), 
 									   flowchart);
+
+				EditorGUILayout.PropertyField(startIndexProp);
 			}
 
 			EditorGUILayout.PropertyField(callModeProp);

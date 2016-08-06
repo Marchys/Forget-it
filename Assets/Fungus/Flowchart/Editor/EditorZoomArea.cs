@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 ﻿// Original code by Martin Ecker (http://martinecker.com)
 
 using UnityEngine;
@@ -66,11 +71,13 @@ namespace Fungus
 			GUI.BeginGroup(clippedArea);
 			
 			_prevGuiMatrix = GUI.matrix;
-			Matrix4x4 translation = Matrix4x4.TRS(clippedArea.TopLeft(), Quaternion.identity, Vector3.one);
+
+            Matrix4x4 translation = Matrix4x4.TRS(clippedArea.TopLeft(), Quaternion.identity, Vector3.one);
 			Matrix4x4 scale = Matrix4x4.Scale(new Vector3(zoomScale, zoomScale, 1.0f));
 			GUI.matrix = translation * scale * translation.inverse * GUI.matrix;
-			
-			return clippedArea;
+            
+
+            return clippedArea;
 		}
 		
 		public static void End()

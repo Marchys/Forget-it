@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -84,8 +89,8 @@ namespace Fungus
 
 			playingVoiceover = true;
 
-			targetAudioSource.volume = 1f;
-			targetVolume = 1f;
+			targetAudioSource.volume = volume;
+			targetVolume = volume;
 			targetAudioSource.loop = false;
 			targetAudioSource.clip = voiceOverClip;
 			targetAudioSource.Play();
@@ -102,7 +107,7 @@ namespace Fungus
 
 			playingVoiceover = false;
 			targetAudioSource.volume = 0f;
-			targetVolume = 1f;
+			targetVolume = volume;
 
 			if (audioClip != null)
 			{
@@ -161,7 +166,7 @@ namespace Fungus
 				return;
 			}
 
-			targetVolume = 1f;
+			targetVolume = volume;
 		}
 
 		protected virtual void Update()
@@ -209,9 +214,12 @@ namespace Fungus
 			Resume();
 		}
 		
-		public virtual void OnEnd()
+		public virtual void OnEnd(bool stopAudio)
 		{
-			Stop();
+			if (stopAudio)
+			{
+				Stop();
+			}
 		}
 
 		public virtual void OnGlyph()
@@ -228,13 +236,16 @@ namespace Fungus
 					if (nextBeepTime < Time.realtimeSinceStartup)
 					{
 						targetAudioSource.clip = beepSounds[Random.Range(0, beepSounds.Count - 1)];
-						targetAudioSource.loop = false;
-						targetVolume = volume;
-						targetAudioSource.Play();
 
-						float extend = targetAudioSource.clip.length;
+						if (targetAudioSource.clip != null)
+						{
+							targetAudioSource.loop = false;
+							targetVolume = volume;
+							targetAudioSource.Play();
 
-						nextBeepTime = Time.realtimeSinceStartup + extend;
+							float extend = targetAudioSource.clip.length;
+							nextBeepTime = Time.realtimeSinceStartup + extend;
+						}
 					}
 				}
 			}

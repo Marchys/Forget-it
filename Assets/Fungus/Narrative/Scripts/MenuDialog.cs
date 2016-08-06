@@ -1,9 +1,16 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
+using System.Linq;
 
 namespace Fungus
 {
@@ -13,8 +20,14 @@ namespace Fungus
 		// Currently active Menu Dialog used to display Menu options
 		public static MenuDialog activeMenuDialog;
 
-		protected Button[] cachedButtons;
-		protected Slider cachedSlider;
+		[Tooltip("Automatically select the first interactable button when the menu is shown.")]
+		public bool autoSelectFirstButton = false;
+
+		[NonSerialized]
+		public Button[] cachedButtons;
+
+		[NonSerialized]
+		public Slider cachedSlider;
 
 		public static MenuDialog GetMenuDialog()
 		{
@@ -102,6 +115,11 @@ namespace Fungus
 
 					button.interactable = interactable;
 
+					if (interactable && autoSelectFirstButton && !cachedButtons.Select((x) => x.gameObject).Contains(EventSystem.current.currentSelectedGameObject))
+					{
+						EventSystem.current.SetSelectedGameObject(button.gameObject);
+					}
+
 					Text textComponent = button.GetComponentInChildren<Text>();
 					if (textComponent != null)
 					{
@@ -111,6 +129,8 @@ namespace Fungus
 					Block block = targetBlock;
 					
 					button.onClick.AddListener(delegate {
+
+						EventSystem.current.SetSelectedGameObject(null);
 
 						StopAllCoroutines(); // Stop timeout
 						Clear();
@@ -127,7 +147,7 @@ namespace Fungus
 
 							gameObject.SetActive(false);
 
-							block.Execute();
+							block.StartExecution();
 						}
 					});
 
@@ -139,7 +159,7 @@ namespace Fungus
 			return addedOption;
 		}
 
-		protected virtual void HideSayDialog()
+		public virtual void HideSayDialog()
 		{
 			SayDialog sayDialog = SayDialog.GetSayDialog();
 			if (sayDialog != null)
@@ -150,10 +170,10 @@ namespace Fungus
 
 		public virtual void ShowTimer(float duration, Block targetBlock)
 		{
-
 			if (cachedSlider != null)
 			{
 				cachedSlider.gameObject.SetActive(true);
+				gameObject.SetActive(true);
 				StopAllCoroutines();
 				StartCoroutine(WaitForTimeout(duration, targetBlock));
 			}
@@ -185,7 +205,7 @@ namespace Fungus
 
 			if (targetBlock != null)
 			{
-				targetBlock.Execute();
+				targetBlock.StartExecution();
 			}
 		}
 	}

@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -98,7 +103,7 @@ namespace Fungus
 
 				DrawEventHandlerGUI(flowchart);
 				
-				UpdateIndentLevels(block);
+				block.UpdateIndentLevels();
 
 				// Make sure each command has a reference to its parent block
 				foreach (Command command in block.commandList)
@@ -335,8 +340,9 @@ namespace Fungus
 				// Add event handlers with no category first
 				foreach (System.Type type in eventHandlerTypes)
 				{
-					EventHandlerInfoAttribute info = EventHandlerEditor.GetEventHandlerInfo(type);					
-					if (info.Category.Length == 0)
+					EventHandlerInfoAttribute info = EventHandlerEditor.GetEventHandlerInfo(type);
+					if (info != null &&
+						info.Category.Length == 0)
 					{
 						SetEventHandlerOperation operation = new SetEventHandlerOperation();
 						operation.block = block;
@@ -350,7 +356,8 @@ namespace Fungus
 				foreach (System.Type type in eventHandlerTypes)
 				{
 					EventHandlerInfoAttribute info = EventHandlerEditor.GetEventHandlerInfo(type);					
-					if (info.Category.Length > 0)
+					if (info != null && 
+						info.Category.Length > 0)
 					{			
 						SetEventHandlerOperation operation = new SetEventHandlerOperation();
 						operation.block = block;
@@ -404,33 +411,6 @@ namespace Fungus
 			PrefabUtility.RecordPrefabInstancePropertyModifications(block);
 		}
 
-		protected virtual void UpdateIndentLevels(Block block)
-		{
-			int indentLevel = 0;
-			foreach(Command command in block.commandList)
-			{
-				if (command == null)
-				{
-					continue;
-				}
-
-				if (command.CloseBlock())
-				{
-					indentLevel--;
-				}
-
-				// Negative indent level is not permitted
-				indentLevel = Math.Max(indentLevel, 0);
-
-				command.indentLevel = indentLevel;
-
-				if (command.OpenBlock())
-				{
-					indentLevel++;
-				}
-			}
-		}
-
 		static public void BlockField(SerializedProperty property, GUIContent label, GUIContent nullLabel, Flowchart flowchart)
 		{
 			if (flowchart == null)
@@ -445,7 +425,7 @@ namespace Fungus
 			
 			int selectedIndex = 0;
 			blockNames.Add(nullLabel);
-			Block[] blocks = flowchart.GetComponentsInChildren<Block>(true);
+			Block[] blocks = flowchart.GetComponents<Block>();
 			for (int i = 0; i < blocks.Length; ++i)
 			{
 				blockNames.Add(new GUIContent(blocks[i].blockName));
@@ -483,7 +463,7 @@ namespace Fungus
 			
 			int selectedIndex = 0;
 			blockNames.Add(nullLabel);
-			Block[] blocks = flowchart.GetComponentsInChildren<Block>();
+			Block[] blocks = flowchart.GetComponents<Block>();
 			for (int i = 0; i < blocks.Length; ++i)
 			{
 				blockNames.Add(new GUIContent(blocks[i].name));
@@ -585,7 +565,8 @@ namespace Fungus
 			foreach (System.Type type in eventHandlerTypes)
 			{
 				EventHandlerInfoAttribute info = EventHandlerEditor.GetEventHandlerInfo(type);
-				if (info.Category != "" &&
+				if (info != null &&
+					info.Category != "" &&
 				    !eventHandlerCategories.Contains(info.Category))
 				{
 					eventHandlerCategories.Add(info.Category);
@@ -602,7 +583,8 @@ namespace Fungus
 				{
 					EventHandlerInfoAttribute info = EventHandlerEditor.GetEventHandlerInfo(type);
 
-					if (info.Category == category ||
+					if (info != null &&
+						info.Category == category ||
 					    info.Category == "" && category == "Core")
 					{
 						markdown += "## " + info.EventHandlerName + "\n";
@@ -790,13 +772,20 @@ namespace Fungus
 			bool showCopy = false;
 			bool showDelete = false;
 			bool showPaste = false;
-			
+            bool showPlay = false;
+
 			if (flowchart.selectedCommands.Count > 0)
 			{
 				showCut = true;
 				showCopy = true;
 				showDelete = true;
-			}
+                if (flowchart.selectedCommands.Count == 1 && Application.isPlaying)
+                {
+                    showPlay = true;
+                }
+            } 
+            
+            
 			
 			CommandCopyBuffer commandCopyBuffer = CommandCopyBuffer.GetInstance();
 			
@@ -842,13 +831,19 @@ namespace Fungus
 			{
 				commandMenu.AddDisabledItem(new GUIContent ("Delete"));
 			}
-			
-			commandMenu.AddSeparator("");
+
+            if (showPlay)
+            {
+                commandMenu.AddItem(new GUIContent("Play from selected"), false, PlayCommand);
+                commandMenu.AddItem(new GUIContent("Stop all and play"), false, StopAllPlayCommand);
+            }
+
+            commandMenu.AddSeparator("");
 			
 			commandMenu.AddItem (new GUIContent ("Select All"), false, SelectAll);
 			commandMenu.AddItem (new GUIContent ("Select None"), false, SelectNone);
-			
-			commandMenu.ShowAsContext();
+
+            commandMenu.ShowAsContext();
 		}
 		
 		protected void SelectAll()
@@ -1029,7 +1024,44 @@ namespace Fungus
 			Repaint();
 		}
 		
-		protected void SelectPrevious()
+		protected void PlayCommand()
+        {
+            Block targetBlock = target as Block;
+            Flowchart flowchart = targetBlock.GetFlowchart();
+            Command command = flowchart.selectedCommands[0];
+            if (targetBlock.IsExecuting())
+            {
+                // The Block is already executing.
+                // Tell the Block to stop, wait a little while so the executing command has a 
+                // chance to stop, and then start execution again from the new command. 
+                targetBlock.Stop();
+                flowchart.StartCoroutine(RunBlock(flowchart, targetBlock, command.commandIndex, 0.2f));
+            }
+            else
+            {
+                // Block isn't executing yet so can start it now.
+                flowchart.ExecuteBlock(targetBlock, command.commandIndex);
+            }
+        }
+
+        protected void StopAllPlayCommand()
+        {
+            Block targetBlock = target as Block;
+            Flowchart flowchart = targetBlock.GetFlowchart();
+            Command command = flowchart.selectedCommands[0];
+
+            // Stop all active blocks then run the selected block.
+            flowchart.StopAllBlocks();
+            flowchart.StartCoroutine(RunBlock(flowchart, targetBlock, command.commandIndex, 0.2f));
+        }
+
+        protected IEnumerator RunBlock(Flowchart flowchart, Block targetBlock, int commandIndex, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            flowchart.ExecuteBlock(targetBlock, commandIndex);
+        }
+
+        protected void SelectPrevious()
 		{
 			Block block = target as Block;
 			Flowchart flowchart = block.GetFlowchart();

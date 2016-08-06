@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEngine;
 using System.Collections;
 
@@ -20,7 +25,7 @@ namespace Fungus
 		public DebugLogType logType;
 
 		[Tooltip("Text to write to the debug log. Supports variable substitution, e.g. {$Myvar}")]
-		public StringData logMessage;
+		public StringDataMulti logMessage;
 
 		public override void OnEnter ()
 		{

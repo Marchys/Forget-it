@@ -1,4 +1,10 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEngine;
+using UnityEngine.Serialization;
 using System;
 using System.Collections;
 
@@ -8,19 +14,20 @@ namespace Fungus
 	             "Reset Anim Trigger", 
 	             "Resets a trigger parameter on an Animator component.")]
 	[AddComponentMenu("")]
-	public class ResetAnimTrigger : Command 
+	[ExecuteInEditMode]
+	public class ResetAnimTrigger : Command
 	{
 		[Tooltip("Reference to an Animator component in a game object")]
-		public Animator animator;
+		public AnimatorData _animator;
 
 		[Tooltip("Name of the trigger Animator parameter that will be reset")]
-		public string parameterName;
+		public StringData _parameterName;
 
 		public override void OnEnter()
 		{
-			if (animator != null)
+			if (_animator.Value != null)
 			{
-				animator.ResetTrigger(parameterName);
+				_animator.Value.ResetTrigger(_parameterName);
 			}
 
 			Continue();
@@ -28,18 +35,40 @@ namespace Fungus
 
 		public override string GetSummary()
 		{
-			if (animator == null)
+			if (_animator.Value == null)
 			{
 				return "Error: No animator selected";
 			}
 
-			return animator.name + " (" + parameterName + ")";
+			return _animator.Value.name + " (" + _parameterName + ")";
 		}
 
 		public override Color GetButtonColor()
 		{
 			return new Color32(170, 204, 169, 255);
 		}
+
+		#region Backwards compatibility
+
+		[HideInInspector] [FormerlySerializedAs("animator")] public Animator animatorOLD;
+		[HideInInspector] [FormerlySerializedAs("parameterName")] public string parameterNameOLD = "";
+
+		protected virtual void OnEnable()
+		{
+			if (animatorOLD != null)
+			{
+				_animator.Value = animatorOLD;
+				animatorOLD = null;
+			}
+
+			if (parameterNameOLD != "")
+			{
+				_parameterName.Value = parameterNameOLD;
+				parameterNameOLD = "";
+			}
+		}
+
+		#endregion
 	}
 
 }

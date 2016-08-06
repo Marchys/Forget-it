@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEngine;
 using UnityEngine.Serialization;
 using System;
@@ -87,6 +92,11 @@ namespace Fungus
 				command.commandIndex = index++;
 			}
 
+			// Ensure all commands are at their correct indent level
+			// This should have already happened in the editor, but may be necessary
+			// if commands are added to the Block at runtime.
+			UpdateIndentLevels();
+
 			executionInfoSet = true;
 		}
 
@@ -137,26 +147,33 @@ namespace Fungus
 			return executionCount;
 		}
 
-		public virtual bool Execute(Action onComplete = null)
+		/// <summary>
+		/// Start a coroutine which executes all commands in the Block. Only one running instance of each Block is permitted.
+		/// </summary>
+		public virtual void StartExecution()
 		{
-			if (executionState != ExecutionState.Idle)
-			{
-				return false;
-			}
-
-			if (!executionInfoSet)
-			{
-				SetExecutionInfo();
-			}
-
-			executionCount++;
-			StartCoroutine(ExecuteBlock(onComplete));
-
-			return true;
+			StartCoroutine(Execute());
 		}
 
-		protected virtual IEnumerator ExecuteBlock(Action onComplete = null)
+        /// <summary>
+        /// A coroutine method that executes all commands in the Block. Only one running instance of each Block is permitted.
+        /// </summary>
+        /// <param name="commandIndex">Index of command to start execution at</param>
+        /// <param name="onComplete">Delegate function to call when execution completes</param>
+        public virtual IEnumerator Execute(int commandIndex = 0, Action onComplete = null)
 		{
+            if (executionState != ExecutionState.Idle)
+            {
+                yield break;
+            }
+
+            if (!executionInfoSet)
+            {
+                SetExecutionInfo();
+            }
+
+            executionCount++;
+
 			Flowchart flowchart = GetFlowchart();
 			executionState = ExecutionState.Executing;
 
@@ -169,6 +186,8 @@ namespace Fungus
 				flowchart.AddSelectedCommand(commandList[0]);
 			}
 			#endif
+
+            jumpToCommandIndex = commandIndex;
 
 			int i = 0;
 			while (true)
@@ -243,10 +262,10 @@ namespace Fungus
 			executionState = ExecutionState.Idle;
 			activeCommand = null;
 
-			if (onComplete != null)
-			{
-				onComplete();
-			}
+            if (onComplete != null)
+            {
+                onComplete();
+            }
 		}
 
 		public virtual void Stop()
@@ -284,6 +303,33 @@ namespace Fungus
 			}
 
 			return null;
+		}
+
+		public virtual void UpdateIndentLevels()
+		{
+			int indentLevel = 0;
+			foreach(Command command in commandList)
+			{
+				if (command == null)
+				{
+					continue;
+				}
+
+				if (command.CloseBlock())
+				{
+					indentLevel--;
+				}
+
+				// Negative indent level is not permitted
+				indentLevel = Math.Max(indentLevel, 0);
+
+				command.indentLevel = indentLevel;
+
+				if (command.OpenBlock())
+				{
+					indentLevel++;
+				}
+			}
 		}
 	}
 }

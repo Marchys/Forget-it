@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
@@ -154,6 +159,7 @@ namespace Fungus
 			serializedObject.ApplyModifiedProperties();
 		}
 
+        
 		static public void ObjectField<T>(SerializedProperty property, GUIContent label, GUIContent nullLabel, List<T> objectList) where T : Object 
 		{
 			if (property == null)
@@ -172,14 +178,16 @@ namespace Fungus
 				if (objectList[i] == null) continue;
 				objectNames.Add(new GUIContent(objectList[i].name));
 				
+                
 				if (selectedObject == objectList[i])
 				{
 					selectedIndex = i + 1;
 				}
+                
 			}
 
 			T result;
-
+            
 			selectedIndex = EditorGUILayout.Popup(label, selectedIndex, objectNames.ToArray());
 			if (selectedIndex == 0)
 			{
@@ -192,6 +200,7 @@ namespace Fungus
 
 			property.objectReferenceValue = result;
 		}
+        
 
 		/**
 		 * When modifying custom editor code you can occasionally end up with orphaned editor instances.

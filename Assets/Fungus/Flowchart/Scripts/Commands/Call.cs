@@ -1,3 +1,8 @@
+/**
+ * This code is part of the Fungus library (http://fungusgames.com) maintained by Chris Gregan (http://twitter.com/gofungus).
+ * It is released for free under the MIT open source license (https://github.com/snozbot/fungus/blob/master/LICENSE)
+ */
+
 using UnityEngine;
 using UnityEngine.Serialization;
 using System.Collections;
@@ -19,6 +24,10 @@ namespace Fungus
 		[FormerlySerializedAs("targetSequence")]
 		[Tooltip("Block to start executing")]
 		public Block targetBlock;
+
+		[Tooltip("Command index to start executing")]
+        [FormerlySerializedAs("commandIndex")]
+		public int startIndex;
 	
 		public enum CallMode
 		{
@@ -64,12 +73,12 @@ namespace Fungus
 						flowchart.selectedBlock = targetBlock;
 					}
 
-					targetBlock.Execute(onComplete);
+                    StartCoroutine(targetBlock.Execute(startIndex, onComplete));
 				}
 				else
 				{
 					// Execute block in another Flowchart
-					targetFlowchart.ExecuteBlock(targetBlock, onComplete);
+                    targetFlowchart.ExecuteBlock(targetBlock, startIndex, onComplete);
 				}
 			}
 
