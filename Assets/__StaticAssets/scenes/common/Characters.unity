@@ -136,6 +136,7 @@ MonoBehaviour:
   profileSprite: {fileID: 0}
   portraits: []
   portraitsFace: 0
+  font: {fileID: 12800000, guid: dd5d1c3f6659e41458eb096faf80ac7f, type: 2}
   setSayDialog: {fileID: 841438310}
   description: 
 --- !u!1001 &841438309
