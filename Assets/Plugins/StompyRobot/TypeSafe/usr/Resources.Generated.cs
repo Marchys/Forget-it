@@ -8,7 +8,7 @@
 // Any changes to this file may be lost when it is regenerated.
 // https://www.stompyrobot.uk/tools/typesafe
 // 
-// TypeSafe Version: 1.2.1-Unity5
+// TypeSafe Version: 1.2.2-Unity5
 // 
 // ------------------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ public sealed class SRResources {
     private SRResources() {
     }
     
-    private const string _tsInternal = "1.2.1-Unity5";
+    private const string _tsInternal = "1.2.2-Unity5";
     
     public static global::TypeSafe.PrefabResource Localization {
         get {
@@ -229,27 +229,34 @@ public sealed class SRResources {
                         }
                     }
                     
-                    public static global::TypeSafe.PrefabResource StringOption {
+                    public static global::TypeSafe.PrefabResource ReadOnlyOption {
                         get {
                             return ((global::TypeSafe.PrefabResource)(__ts_internal_resources[2]));
                         }
                     }
                     
-                    public static global::TypeSafe.PrefabResource EnumOption {
+                    public static global::TypeSafe.PrefabResource StringOption {
                         get {
                             return ((global::TypeSafe.PrefabResource)(__ts_internal_resources[3]));
                         }
                     }
                     
-                    public static global::TypeSafe.PrefabResource NumberOption {
+                    public static global::TypeSafe.PrefabResource EnumOption {
                         get {
                             return ((global::TypeSafe.PrefabResource)(__ts_internal_resources[4]));
+                        }
+                    }
+                    
+                    public static global::TypeSafe.PrefabResource NumberOption {
+                        get {
+                            return ((global::TypeSafe.PrefabResource)(__ts_internal_resources[5]));
                         }
                     }
                     
                     private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> __ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
                                 new global::TypeSafe.PrefabResource("BoolOption", "SRDebugger/UI/Prefabs/Options/BoolOption"),
                                 new global::TypeSafe.PrefabResource("ActionOption", "SRDebugger/UI/Prefabs/Options/ActionOption"),
+                                new global::TypeSafe.PrefabResource("ReadOnlyOption", "SRDebugger/UI/Prefabs/Options/ReadOnlyOption"),
                                 new global::TypeSafe.PrefabResource("StringOption", "SRDebugger/UI/Prefabs/Options/StringOption"),
                                 new global::TypeSafe.PrefabResource("EnumOption", "SRDebugger/UI/Prefabs/Options/EnumOption"),
                                 new global::TypeSafe.PrefabResource("NumberOption", "SRDebugger/UI/Prefabs/Options/NumberOption")});
