@@ -31,13 +31,13 @@ MonoBehaviour:
   - Path: Assets/Plugins/StompyRobot/SRDebugger/usr/Resources/SRDebugger/Settings.asset
     Type: SRDebugger.Settings, Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - Path: Assets/FungusExamples/FungusLua/Narrative/Resources/Lua/junglestory.txt
+  - Path: Assets/Plugins/Fungus/Thirdparty/FungusLua/Resources/Lua/fungus.txt
     Type: UnityEngine.TextAsset, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Path: Assets/Fungus/Thirdparty/FungusLua/Resources/Types/FungusTypes.txt
+  - Path: Assets/Plugins/Fungus/Thirdparty/FungusLua/Resources/Lua/inspect.txt
     Type: UnityEngine.TextAsset, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Path: Assets/Fungus/Thirdparty/FungusLua/Resources/Types/UnityTypes.txt
+  - Path: Assets/Plugins/Fungus/Thirdparty/FungusLua/Resources/Types/UnityTypes.txt
     Type: UnityEngine.TextAsset, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Path: Assets/Fungus/Thirdparty/FungusLua/Resources/Lua/inspect.txt
+  - Path: Assets/Plugins/Fungus/Thirdparty/FungusLua/Resources/Types/FungusTypes.txt
     Type: UnityEngine.TextAsset, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Path: Assets/Fungus/Thirdparty/FungusLua/Resources/Lua/fungus.txt
+  - Path: Assets/Plugins/FungusExamples/FungusLua/Narrative/Resources/Lua/junglestory.txt
     Type: UnityEngine.TextAsset, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
