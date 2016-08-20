@@ -113,6 +113,9 @@ namespace Fungus
                 {
                     button.gameObject.SetActive(true);
 
+                    ChoosePathButton buttonComponent = GetComponent<ChoosePathButton>();
+                    buttonComponent.setOption(text);
+
                     button.interactable = interactable;
 
                     if (interactable && autoSelectFirstButton && !cachedButtons.Select((x) => x.gameObject).Contains(EventSystem.current.currentSelectedGameObject))
