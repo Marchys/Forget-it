@@ -31,30 +31,21 @@ namespace Fungus
 
         public static ChoosePathDialog GetMenuDialog()
         {
-            if (activeMenuDialog == null)
+            if (activeMenuDialog != null)
             {
-                // Use first Menu Dialog found in the scene (if any)
-                ChoosePathDialog md = GameObject.FindObjectOfType<ChoosePathDialog>();
-                if (md != null)
-                {
-                    activeMenuDialog = md;
-                }
-
-                if (activeMenuDialog == null)
-                {
-                    // Auto spawn a menu dialog object from the prefab
-                    GameObject prefab = Resources.Load<GameObject>("MenuDialog");
-                    if (prefab != null)
-                    {
-                        GameObject go = Instantiate(prefab) as GameObject;
-                        go.SetActive(false);
-                        go.name = "MenuDialog";
-                        activeMenuDialog = go.GetComponent<ChoosePathDialog>();
-                    }
-                }
+                return activeMenuDialog;
             }
 
-            return activeMenuDialog;
+            ChoosePathDialog menuDialog = GameObject.FindObjectOfType<ChoosePathDialog>();
+            if (menuDialog != null)
+            {
+                return menuDialog;
+            }
+
+            GameObject dialog = SRResources.Prefabs.CustomMenuDialog.Instantiate();
+            dialog.SetActive(false);
+            dialog.name = "ChoosePathDialog";
+            return dialog.GetComponent<ChoosePathDialog>();
         }
 
         public virtual void Awake()
@@ -131,7 +122,8 @@ namespace Fungus
 
                     Block block = targetBlock;
 
-                    button.onClick.AddListener(delegate {
+                    button.onClick.AddListener(delegate
+                    {
 
                         EventSystem.current.SetSelectedGameObject(null);
 

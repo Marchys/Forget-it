@@ -303,10 +303,9 @@ GameObject:
   - 114: {fileID: 1390555326}
   - 114: {fileID: 1390555324}
   - 114: {fileID: 1390555340}
-  - 114: {fileID: 1390555341}
   - 114: {fileID: 1390555344}
   - 114: {fileID: 1390555343}
-  - 114: {fileID: 1390555342}
+  - 114: {fileID: 1390555341}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -429,11 +428,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 3176.2617, y: 1219.8519}
+  scrollPos: {x: 3239.786, y: 1100.0159}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 342
-  zoom: 1
+  blockViewHeight: 359
+  zoom: 0.6100004
   scrollViewRect:
     serializedVersion: 2
     x: -4071.385
@@ -442,7 +441,7 @@ MonoBehaviour:
     height: 2818.8503
   selectedBlock: {fileID: 1390555305}
   selectedCommands:
-  - {fileID: 1390555342}
+  - {fileID: 1390555341}
   variables: []
   description: Forguet-it
   stepPause: 0
@@ -715,7 +714,6 @@ MonoBehaviour:
   - {fileID: 1390555326}
   - {fileID: 1390555324}
   - {fileID: 1390555341}
-  - {fileID: 1390555342}
 --- !u!114 &1390555306
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1607,35 +1605,13 @@ MonoBehaviour:
   targetColorOLD: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1390555341
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1390555290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 161
-  errorMessage: 
-  indentLevel: 0
-  text: Option Text
-  description: 
-  targetBlock: {fileID: 1390555344}
-  hideIfVisited: 0
-  interactable:
-    booleanRef: {fileID: 0}
-    booleanVal: 1
-  setMenuDialog: {fileID: 0}
---- !u!114 &1390555342
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1390555290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 841589fc622bc494aa5405f416fa1301, type: 3}
+  m_Script: {fileID: 11500000, guid: f17fae24c1b2b3c41b6919721fa5205a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 164
@@ -1643,7 +1619,7 @@ MonoBehaviour:
   indentLevel: 0
   text: Option Text
   description: 
-  targetBlock: {fileID: 1390555343}
+  targetBlock: {fileID: 0}
   hideIfVisited: 0
   interactable:
     booleanRef: {fileID: 0}
@@ -1684,7 +1660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -3047.2617
+    x: -3012.835
     y: -771.8519
     width: 120
     height: 40
@@ -1770,56 +1746,6 @@ MonoBehaviour:
         Culture=neutral, PublicKeyToken=null
       componentIndex: 0
       editorLocalId: 841438309
-      editorPrefabRelativePath: 
-      version: 1
-  - _fromObject:
-      scene:
-        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
-        name: main
-        _path: Assets/__StaticAssets/scenes/main.unity
-      fullPath: /Flowchart
-      componentName: Fungus.Menu, Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      componentIndex: 0
-      editorLocalId: 0
-      editorPrefabRelativePath: 
-      version: 1
-    _fromField: setMenuDialog
-    _toObject:
-      scene:
-        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
-        name: Dialogs
-        _path: Assets/__StaticAssets/scenes/common/Dialogs.unity
-      fullPath: /CustomMenuDialog
-      componentName: Fungus.MenuDialog, Assembly-CSharp-firstpass, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      componentIndex: 0
-      editorLocalId: 848393514
-      editorPrefabRelativePath: 
-      version: 1
-  - _fromObject:
-      scene:
-        editorAssetGUID: e3a4a6c1bc56a44489e1b8be940b308c
-        name: main
-        _path: Assets/__StaticAssets/scenes/main.unity
-      fullPath: /Flowchart
-      componentName: Fungus.Menu, Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      componentIndex: 1
-      editorLocalId: 0
-      editorPrefabRelativePath: 
-      version: 1
-    _fromField: setMenuDialog
-    _toObject:
-      scene:
-        editorAssetGUID: ceba52598155df24ab39bfdb2f65d6cb
-        name: Dialogs
-        _path: Assets/__StaticAssets/scenes/common/Dialogs.unity
-      fullPath: /CustomMenuDialog
-      componentName: Fungus.MenuDialog, Assembly-CSharp-firstpass, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      componentIndex: 0
-      editorLocalId: 848393514
       editorPrefabRelativePath: 
       version: 1
   _realSceneRootsForPostBuild: []

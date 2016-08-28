@@ -5,17 +5,15 @@
 
 using UnityEngine;
 using UnityEngine.Serialization;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Fungus
 {
     [CommandInfo("Narrative",
-                 "Menu",
-                 "Displays a button in a multiple choice menu")]
+                 "ChoosePath",
+                 "Displays a button in a multiple choice animated menu")]
     [AddComponentMenu("")]
-    public class Menu : Command, ILocalizable
+    public class ChoosePath : Command, ILocalizable
     {
         [Tooltip("Text to display on the menu button")]
         public string text = "Option Text";
@@ -33,15 +31,15 @@ namespace Fungus
         [Tooltip("If false, the menu option will be displayed but will not be selectable")]
         public BooleanData interactable = new BooleanData(true);
 
-        [Tooltip("A custom Menu Dialog to use to display this menu. All subsequent Menu commands will use this dialog.")]
-        public ChoosePathDialog setMenuDialog;
+        [Tooltip("A custom Choose Path dialog to use to display this menu. All subsequent Menu commands will use this dialog.")]
+        public ChoosePathDialog setChoosePathDialog;
 
         public override void OnEnter()
         {
-            if (setMenuDialog != null)
+            if (setChoosePathDialog != null)
             {
                 // Override the active menu dialog
-                ChoosePathDialog.activeMenuDialog = setMenuDialog;
+                ChoosePathDialog.activeMenuDialog = setChoosePathDialog;
             }
 
             bool hideOption = (hideIfVisited && targetBlock != null && targetBlock.GetExecutionCount() > 0);
