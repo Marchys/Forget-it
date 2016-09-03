@@ -306,6 +306,9 @@ GameObject:
   - 114: {fileID: 1390555344}
   - 114: {fileID: 1390555343}
   - 114: {fileID: 1390555341}
+  - 114: {fileID: 1390555346}
+  - 114: {fileID: 1390555345}
+  - 114: {fileID: 1390555342}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -714,6 +717,7 @@ MonoBehaviour:
   - {fileID: 1390555326}
   - {fileID: 1390555324}
   - {fileID: 1390555341}
+  - {fileID: 1390555342}
 --- !u!114 &1390555306
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1605,7 +1609,7 @@ MonoBehaviour:
   targetColorOLD: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1390555341
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1390555290}
@@ -1617,14 +1621,36 @@ MonoBehaviour:
   itemId: 164
   errorMessage: 
   indentLevel: 0
-  text: Option Text
+  text: What?
   description: 
-  targetBlock: {fileID: 0}
+  targetBlock: {fileID: 1390555343}
   hideIfVisited: 0
   interactable:
     booleanRef: {fileID: 0}
     booleanVal: 1
-  setMenuDialog: {fileID: 0}
+  setChoosePathDialog: {fileID: 0}
+--- !u!114 &1390555342
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390555290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17fae24c1b2b3c41b6919721fa5205a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 167
+  errorMessage: 
+  indentLevel: 0
+  text: This is not real...
+  description: 
+  targetBlock: {fileID: 1390555344}
+  hideIfVisited: 0
+  interactable:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  setChoosePathDialog: {fileID: 0}
 --- !u!114 &1390555343
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1646,7 +1672,8 @@ MonoBehaviour:
   blockName: option2
   description: 
   eventHandler: {fileID: 0}
-  commandList: []
+  commandList:
+  - {fileID: 1390555346}
 --- !u!114 &1390555344
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1668,7 +1695,60 @@ MonoBehaviour:
   blockName: option1
   description: 
   eventHandler: {fileID: 0}
-  commandList: []
+  commandList:
+  - {fileID: 1390555345}
+--- !u!114 &1390555345
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390555290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 166
+  errorMessage: 
+  indentLevel: 0
+  storyText: Hello it's me option 1
+  description: 
+  character: {fileID: 1711515128}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
+--- !u!114 &1390555346
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390555290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 165
+  errorMessage: 
+  indentLevel: 0
+  storyText: Hello it's me option 2
+  description: 
+  character: {fileID: 1029227273}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  setSayDialog: {fileID: 0}
 --- !u!1 &1422310453
 GameObject:
   m_ObjectHideFlags: 0

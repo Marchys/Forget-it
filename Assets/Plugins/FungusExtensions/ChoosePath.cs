@@ -38,7 +38,7 @@ namespace Fungus
         {
             if (setChoosePathDialog != null)
             {
-                // Override the active menu dialog
+                // Override the active choose path dialog
                 ChoosePathDialog.activeMenuDialog = setChoosePathDialog;
             }
 

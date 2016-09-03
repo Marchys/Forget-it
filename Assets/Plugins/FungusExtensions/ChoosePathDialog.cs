@@ -53,6 +53,7 @@ namespace Fungus
             Button[] optionButtons = GetComponentsInChildren<Button>();
             cachedButtons = optionButtons;
 
+            ChoosePathButton[] Buttons = GetComponentsInChildren<ChoosePathButton>().Select(item => item.Initialize()).ToArray();   
             Slider timeoutSlider = GetComponentInChildren<Slider>();
             cachedSlider = timeoutSlider;
 
@@ -104,7 +105,7 @@ namespace Fungus
                 {
                     button.gameObject.SetActive(true);
 
-                    ChoosePathButton buttonComponent = GetComponent<ChoosePathButton>();
+                    ChoosePathButton buttonComponent = button.GetComponent<ChoosePathButton>();
                     buttonComponent.setOption(text);
 
                     button.interactable = interactable;
@@ -112,12 +113,6 @@ namespace Fungus
                     if (interactable && autoSelectFirstButton && !cachedButtons.Select((x) => x.gameObject).Contains(EventSystem.current.currentSelectedGameObject))
                     {
                         EventSystem.current.SetSelectedGameObject(button.gameObject);
-                    }
-
-                    Text textComponent = button.GetComponentInChildren<Text>();
-                    if (textComponent != null)
-                    {
-                        textComponent.text = text;
                     }
 
                     Block block = targetBlock;

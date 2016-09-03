@@ -9,7 +9,7 @@ public class ChoosePathButton : MonoBehaviour
     private Image imageComponent;
     private Button buttonComponent;
 
-    void Start()
+    public ChoosePathButton Initialize()
     {
         textComponent = GetComponentInChildren<Text>();
         if (textComponent == null)
@@ -26,7 +26,8 @@ public class ChoosePathButton : MonoBehaviour
         {
             Debug.Log("Could not find button component");
         }
-        Show();
+        Hide();
+        return this;
     }
 
     public ChoosePathButton setOption(string text)
