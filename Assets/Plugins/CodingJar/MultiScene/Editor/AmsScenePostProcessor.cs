@@ -131,7 +131,7 @@ namespace CodingJar.MultiScene.Editor
 			if ( bakedScenes.Count < 1 )
 				return;
 
-			AmsDebug.Log( null, "Running MergeScenes on Scene {0}", activeScene.name );
+			AmsDebug.Log( null, "Running AMS MergeScenes on Scene {0} ({1})", activeScene.name, activeSetup.scenePath );
 
 			foreach( var entry in bakedScenes )
 			{
@@ -141,11 +141,12 @@ namespace CodingJar.MultiScene.Editor
 					continue;
 				}
 
-				var sourceCrossRefs = AmsCrossSceneReferences.GetSceneSingleton( entry.scene.scene, false );
-				if ( sourceCrossRefs )
-					GameObject.DestroyImmediate( sourceCrossRefs.gameObject, false );
+				// Merge the cross-scene references (and keep track of the merges)
+				var bakedSceneSetup = GameObjectEx.GetSceneSingleton<AmsMultiSceneSetup>( entry.scene.scene, false );
+				if ( bakedSceneSetup )
+					AmsCrossSceneReferences.EditorBuildPipelineMergeScene( bakedSceneSetup, activeSetup );
 
-				AmsDebug.Log( null, "Merging {0} into {1}", entry.scene.name, activeScene.name );
+				AmsDebug.Log( null, "Running Unity MergeScenes for {0} into {1}", entry.scene.name, activeScene.name );
 				EditorSceneManager.MergeScenes( entry.scene.scene, activeScene );
 			}
 		} // MergeScenes

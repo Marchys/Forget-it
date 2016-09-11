@@ -1,6 +1,8 @@
 Coding Jar Advanced Multi-Scene Plugin
 Copyright: Coding Jar Studios 2016
 
+Support:  https://forum.unity3d.com/threads/advanced-multi-scene-now-available.383525/
+
 What is Advanced Multi-Scene?
 -----------------------------
 
@@ -165,8 +167,24 @@ To Import WITHOUT Cross-Scene References:
 Note that this manual version is recommended for small projects.  For large projects with a highly competant tech team, I recommend writing an upgrade script.
 The steps for writing such a script are product-dependent, but an outline can be found here:  http://forum.unity3d.com/threads/advanced-multi-scene-now-available.383525/#post-2560974
 
+Known Issues
+------------
+
+If you use Unity 5.3.2f1 you should do your builds from an Empty scene (having a scene open may cause duplicate objects in that scene).  This does not happen in 5.3.4p4 and newer (this is the next step up that I test).
+
 Support
 -------
 
 Support Forum (Preferred):	http://forum.unity3d.com/threads/advanced-multi-scene-now-available.383525/
 Support E-mail:			jodon@codingjar.com (I want to discourage this because others don't get to see the posts, but it's good for code dumps)
+
+Version Info
+------------
+
+The version information matches the latest Unity that the plug-in has been tested on.  For instance, 0.54p1 means it's been tested on Unity 5.4p1.
+
+0.54f1
+------
+
+Added the ability for cross-scene references to go from a Baked scene to an Additive scene or vice versa.
+Note that if you use this version on Unity 5.3.2f1 you should do your builds from an Empty scene (having a scene open may cause duplicate objects in that scene).

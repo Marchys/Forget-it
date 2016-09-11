@@ -19,7 +19,6 @@ namespace CodingJar.MultiScene
 		// So we can version and auto-upgrade
 		[SerializeField, HideInInspector]	private int		version;
 
-		private static int	CurrentSerializedVersion = 1;
 		private static List<Component>	_reusableComponentsList = new List<Component>();
 
 		/// <summary>

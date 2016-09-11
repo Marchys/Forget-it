@@ -60,7 +60,8 @@ namespace CodingJar.MultiScene
 
 		public AmsSceneReference	toScene
 		{
-			get { return _toObject.scene; }
+			get { return _toObject.scene;	}
+			set { _toObject.scene = value;	}
 		}
 
         public override string ToString()
@@ -240,10 +241,13 @@ namespace CodingJar.MultiScene
 				try
 				{
 					list[arrayIndex] = toObject;
-				} catch ( System.Exception ex )
-				{
-					Debug.LogException( ex );
 				}
+				catch ( System.Exception ex )
+				{
+					// Wrap that exception so we know we must fix it
+					throw new ResolveException( string.Format( "Cross-Scene Reference Resolve FAIL on {0}.'{1}'[{2}]. Manual fix required. Exception said '{3}'", fromObject, field.Name, arrayIndex, ex.ToString()) );
+				}
+
 				return;
 			}
 			else if ( !field.FieldType.IsAssignableFrom( toObject.GetType() ) )

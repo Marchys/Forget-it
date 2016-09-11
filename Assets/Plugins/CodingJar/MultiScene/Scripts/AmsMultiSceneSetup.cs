@@ -85,9 +85,11 @@ namespace CodingJar.MultiScene
 		[SerializeField]	List<SceneEntry>	_sceneSetup = new List<SceneEntry>();
 		[Readonly, SerializeField]	string				_thisScenePath;
 
+#if UNITY_EDITOR
 		/// <summary> The co-routine that runs in play-in-editor mode that ensures our scenes are baked correctly </summary>
 		private Coroutine _waitingToBake = null;
 		private List<SceneEntry>	_bakedScenesLoading = new List<SceneEntry>();	// Currently loading or loaded
+#endif
 		private List<SceneEntry>	_bakedScenesMerged = new List<SceneEntry>();	// Already merged
 
 		public static System.Action<AmsMultiSceneSetup>	OnAwake;

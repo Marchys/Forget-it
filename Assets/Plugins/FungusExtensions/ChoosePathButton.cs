@@ -1,61 +1,86 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
+using UnityEditor;
 using UnityEngine.UI;
 
 public class ChoosePathButton : MonoBehaviour
 {
-    private bool buttonReady;
-    private Text textComponent;
-    private Image imageComponent;
-    private Button buttonComponent;
+    private bool _buttonReady;
+    private Text _textComponent;
+    private Image _imageComponent;
+    private Button _buttonComponent;
+    private readonly float[] _buttonEntryTimes = {2f, 2.2f, 2.4f, 2.6f, 2.8f, 3f};
 
     public ChoosePathButton Initialize()
     {
-        textComponent = GetComponentInChildren<Text>();
-        if (textComponent == null)
+        _textComponent = GetComponentInChildren<Text>();
+        if (_textComponent == null)
         {
             Debug.Log("Could not find text component");
         }
-        imageComponent = GetComponent<Image>();
-        if (imageComponent == null)
+        _imageComponent = GetComponent<Image>();
+        if (_imageComponent == null)
         {
             Debug.Log("Could not find image component");
         }
-        buttonComponent = GetComponent<Button>();
-        if (buttonComponent == null)
+        _buttonComponent = GetComponent<Button>();
+        if (_buttonComponent == null)
         {
             Debug.Log("Could not find button component");
         }
         Hide();
+        Disable();
         return this;
     }
 
-    public ChoosePathButton setOption(string text)
+    public ChoosePathButton SetOption(string text)
     {
-        buttonReady = true;
-        if (textComponent == null)
+        _buttonReady = true;
+        if (_textComponent == null)
         {
             Debug.Log("Text component not available");
             return this;
         }
-        textComponent.text = text;
+        _textComponent.text = text;
+        return this;
+    }
+
+    public ChoosePathButton StartEntry(int buttonIndex)
+    {
+        Show();
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        Vector3 currentPosition = rectTransform.position;
+        rectTransform.position = new Vector3(currentPosition.x, currentPosition.y-530, currentPosition.z);
+        Tween tween = rectTransform.DOMove(currentPosition, _buttonEntryTimes[buttonIndex]).OnComplete(()=> Enable());
+        tween.SetEase(Ease.OutQuint);
         return this;
     }
 
     public ChoosePathButton Hide()
     {
-        imageComponent.color = Color.clear;
-        textComponent.color = Color.clear;
-        buttonComponent.enabled = false;
+        _imageComponent.color = Color.clear;
+        _textComponent.color = Color.clear;
         return this;
     }
 
     public ChoosePathButton Show()
     {
-        imageComponent.color = Color.white;
-        textComponent.color = Color.white;
-        buttonComponent.enabled = true;
+        _imageComponent.color = Color.white;
+        _textComponent.color = Color.white;
         return this;
     }
 
+    public ChoosePathButton Disable()
+    {
+        _buttonComponent.enabled = false;
+        return this;
+    }
+
+    public ChoosePathButton Enable()
+    {
+        _buttonComponent.enabled = true;
+        return this;
+
+    }
 }

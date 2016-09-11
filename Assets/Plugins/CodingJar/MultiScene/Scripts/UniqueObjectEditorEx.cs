@@ -19,6 +19,7 @@ namespace CodingJar.MultiScene
 	public partial struct UniqueObject
 	{
 #if UNITY_EDITOR
+		private static int	CurrentSerializedVersion = 1;
 
 		private int	GetEditorId( Object obj )
 		{
@@ -54,6 +55,10 @@ namespace CodingJar.MultiScene
 			Object[] allObjs = EditorUtility.CollectDeepHierarchy( scene.GetRootGameObjects() );
 			foreach( var obj in allObjs )
 			{
+				// Apparently this happens... bummer
+				if ( !obj )
+					continue;
+
 				// If it's a prefab, it's a lot more difficult since Unity doesn't store IDs
 				var prefabObj = PrefabUtility.GetPrefabObject(obj);
 				if ( prefabObj && editorLocalId == GetEditorId(prefabObj) )
@@ -86,7 +91,8 @@ namespace CodingJar.MultiScene
 				}
 				else if ( editorLocalId == GetEditorId(obj) )
 				{
-					Debug.LogWarningFormat( obj, "Performed a slow resolve on {0} and found {1}. We're fairly certain this is correct.", this, obj );
+					GameObject gameObject = GameObjectEx.EditorGetGameObjectFromComponent( obj );
+					Debug.LogWarningFormat( obj, "Performed a slow resolve on {0} and found {1} ({2}). Double-check this is correct.", this, gameObject ? gameObject.GetFullName() : "(Non-Existant GameObject)", obj.GetType() );
 					return obj;
 				}
 			}
@@ -127,7 +133,7 @@ namespace CodingJar.MultiScene
 			if ( prefabObj )
 			{
 				GameObject prefabRoot = PrefabUtility.FindPrefabRoot( gameObject );
-				editorLocalId = prefabObj ? GetEditorId(prefabObj) : GetEditorId( obj );
+				editorLocalId = prefabRoot ? GetEditorId(prefabRoot) : GetEditorId( obj );
 				editorPrefabRelativePath = TransformEx.GetPathRelativeTo( gameObject.transform, prefabRoot.transform ); 
 			}
 		}

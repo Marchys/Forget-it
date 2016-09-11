@@ -117,7 +117,9 @@ namespace CodingJar.MultiScene.Editor
 						{
 							AmsDebug.Log( null, "Restoring Cross-Scene Ref (Post-Save): {0}", xRef );
 							xRef.fromProperty.objectReferenceInstanceIDValue = refIdToRestore;
-							xRef.fromProperty.serializedObject.ApplyModifiedPropertiesWithoutUndo();
+							
+							if ( xRef.fromProperty.serializedObject.targetObject )
+								xRef.fromProperty.serializedObject.ApplyModifiedPropertiesWithoutUndo();
 						};
 				}
 			}

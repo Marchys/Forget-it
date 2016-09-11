@@ -309,6 +309,7 @@ GameObject:
   - 114: {fileID: 1390555346}
   - 114: {fileID: 1390555345}
   - 114: {fileID: 1390555342}
+  - 114: {fileID: 1390555347}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1749,6 +1750,17 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   setSayDialog: {fileID: 0}
+--- !u!114 &1390555347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1390555290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eab66d6f6f8f27344a2f04c4f1cb949e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1422310453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1787,7 +1799,7 @@ MonoBehaviour:
       componentName: Fungus.Character, Assembly-CSharp-firstpass, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 1711515127
+      editorLocalId: 1295300216
       editorPrefabRelativePath: 
       version: 1
     _fromField: setSayDialog
@@ -1800,7 +1812,7 @@ MonoBehaviour:
       componentName: Fungus.SayDialog, Assembly-CSharp-firstpass, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 1034962041
+      editorLocalId: 1648892900
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1812,7 +1824,7 @@ MonoBehaviour:
       componentName: Fungus.Character, Assembly-CSharp-firstpass, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 1029227272
+      editorLocalId: 2010630724
       editorPrefabRelativePath: 
       version: 1
     _fromField: setSayDialog
@@ -1825,10 +1837,11 @@ MonoBehaviour:
       componentName: Fungus.SayDialog, Assembly-CSharp-firstpass, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 841438309
+      editorLocalId: 1272789769
       editorPrefabRelativePath: 
       version: 1
   _realSceneRootsForPostBuild: []
+  _mergedScenes: []
 --- !u!114 &1422310455
 MonoBehaviour:
   m_ObjectHideFlags: 0

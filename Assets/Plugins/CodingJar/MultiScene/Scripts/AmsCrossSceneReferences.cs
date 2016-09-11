@@ -24,6 +24,10 @@ namespace CodingJar.MultiScene
     {
         [SerializeField]    private List<RuntimeCrossSceneReference>	_crossSceneReferences = new List<RuntimeCrossSceneReference>();
 		[SerializeField, HideInInspector]	private List<GameObject>	_realSceneRootsForPostBuild = new List<GameObject>();
+
+		// When we merge into a scene, we need to redirect the cross-scene references
+		[SerializeField, HideInInspector]	private List<AmsSceneReference>	_mergedScenes = new List<AmsSceneReference>();
+		private static Dictionary<AmsSceneReference, AmsSceneReference>		_activeMergedScenes = new Dictionary<AmsSceneReference,AmsSceneReference>();
 		
 		private List<RuntimeCrossSceneReference>	_referencesToResolve = new List<RuntimeCrossSceneReference>();
 
@@ -80,6 +84,11 @@ namespace CodingJar.MultiScene
 		void Awake()
 		{
 			//AmsDebug.Log( this, "{0}.Awake() Scene: {1}. IsLoaded: {2}. Path: {3}. Frame: {4}. Root Count: {5}", GetType().Name, gameObject.scene.name, gameObject.scene.isLoaded, gameObject.scene.path, Time.frameCount, gameObject.scene.rootCount );
+			
+			// Make sure we keep track of all of the merged scenes
+			AmsSceneReference thisScene = new AmsSceneReference( gameObject.scene );
+			foreach( var prevScene in _mergedScenes )
+				_activeMergedScenes.Add( prevScene, thisScene );
 
 			// We need to queue our cross-scene references super early in case we get merged.
 			_referencesToResolve.Clear();
@@ -111,6 +120,10 @@ namespace CodingJar.MultiScene
 		{
 			AmsMultiSceneSetup.OnStart -= HandleNewSceneLoaded;
 			AmsMultiSceneSetup.OnDestroyed -= HandleSceneDestroyed;
+
+			// Make sure we keep track of all of the merged scenes
+			foreach( var prevScene in _mergedScenes )
+				_activeMergedScenes.Remove( prevScene );
 		}
 
 		/// <summary>
@@ -203,10 +216,21 @@ namespace CodingJar.MultiScene
 
 				try
 				{
-					var fromScene = xRef.fromScene;
-					var toScene= xRef.toScene;
-					bool bIsReady = fromScene.isLoaded && toScene.isLoaded;
+					// See if it's a reference to a merged scene... if so we need to redirect
+					var toScene = xRef.toScene;
+					if ( !toScene.IsValid() )
+					{
+						AmsSceneReference mergedSceneRedirect;
+						if ( _activeMergedScenes.TryGetValue( toScene, out mergedSceneRedirect ) )
+						{
+							AmsDebug.Log( this, "Redirecting cross scene reference {0} from original target scene {1} to scene {2}", xRef, toScene.name, mergedSceneRedirect.name );
+							toScene = mergedSceneRedirect;
+							xRef.toScene = mergedSceneRedirect;
+						}
+					}
 
+					var fromScene = xRef.fromScene;
+					bool bIsReady = fromScene.isLoaded && toScene.isLoaded;
 					AmsDebug.Log( this, "{0}.ConditionalResolveReferences() Scene: {1}. xRef: {2}. isReady: {3}. fromSceneLoaded: {4}. toSceneLoaded: {5}.", GetType().Name, gameObject.scene.name, xRef, bIsReady, fromScene.isLoaded, toScene.isLoaded );
 
 					if ( bIsReady )
@@ -323,6 +347,49 @@ namespace CodingJar.MultiScene
                 }
             }
         }
+
+		/// <summary>
+		/// This is called during the build pipeline to ensure a proper merge from one scene into another, taking into account cross-scene references
+		/// </summary>
+		/// <param name="sourceSceneSetup">The scene we're merging from</param>
+		/// <param name="destSceneSetup">The scene we're merging to</param>
+		public static void EditorBuildPipelineMergeScene( AmsMultiSceneSetup sourceSceneSetup, AmsMultiSceneSetup destSceneSetup )
+		{
+			// This is happening during the build system, so we're going to end up with a scene name of 0.backup
+			// So we need to get the actual path from the AmsMultiSceneSetup object and clobber it.
+			var amsFromSceneRef = new AmsSceneReference(sourceSceneSetup.gameObject.scene);
+			amsFromSceneRef.editorPath = sourceSceneSetup.scenePath;
+
+			var amsIntoSceneRef= new AmsSceneReference(destSceneSetup.gameObject.scene);
+			amsIntoSceneRef.editorPath = destSceneSetup.scenePath;
+
+			// Now get the cross-scene references from both scenes to merge them
+			var srcCrossSceneRefs = GetSceneSingleton( sourceSceneSetup.gameObject.scene, false );
+			if ( !srcCrossSceneRefs )
+				return;
+
+			var destCrossSceneRefs = GetSceneSingleton( destSceneSetup.gameObject.scene, true );
+
+			for(int i = 0 ; i < srcCrossSceneRefs._crossSceneReferences.Count ; ++i)
+			{
+				var xRef = srcCrossSceneRefs._crossSceneReferences[i];
+				if ( !srcCrossSceneRefs._referencesToResolve.Contains(xRef) )
+				{
+					AmsDebug.Log( srcCrossSceneRefs, "Already resolved xRef {0}. No need to merge it.", xRef );
+					continue;
+				}
+
+				AmsDebug.Log( destSceneSetup, "Merging {0} into Scene {1}", xRef, amsIntoSceneRef.editorPath );
+				xRef.fromScene = amsIntoSceneRef;;
+				destCrossSceneRefs.AddReference( xRef );
+			}
+
+			// Mark this as a merged scene in the destination, so when we look-up cross-scene references we're aware.
+			destCrossSceneRefs._mergedScenes.Add( amsFromSceneRef );
+
+			// Destroy this object after the merge is complete (we don't want it merged into the scene)
+			GameObject.DestroyImmediate( srcCrossSceneRefs.gameObject, false );
+		}
 #endif
 
 	} // class

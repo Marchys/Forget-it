@@ -53,7 +53,7 @@ namespace Fungus
             Button[] optionButtons = GetComponentsInChildren<Button>();
             cachedButtons = optionButtons;
 
-            ChoosePathButton[] Buttons = GetComponentsInChildren<ChoosePathButton>().Select(item => item.Initialize()).ToArray();   
+            ChoosePathButton[] buttons = GetComponentsInChildren<ChoosePathButton>().Select(item => item.Initialize()).ToArray();
             Slider timeoutSlider = GetComponentInChildren<Slider>();
             cachedSlider = timeoutSlider;
 
@@ -99,6 +99,7 @@ namespace Fungus
         public virtual bool AddOption(string text, bool interactable, Block targetBlock)
         {
             bool addedOption = false;
+            int counter = 0;
             foreach (Button button in cachedButtons)
             {
                 if (!button.gameObject.activeSelf)
@@ -106,7 +107,8 @@ namespace Fungus
                     button.gameObject.SetActive(true);
 
                     ChoosePathButton buttonComponent = button.GetComponent<ChoosePathButton>();
-                    buttonComponent.setOption(text);
+                    buttonComponent.SetOption(text)
+                                   .StartEntry(counter);
 
                     button.interactable = interactable;
 
@@ -144,6 +146,7 @@ namespace Fungus
                     addedOption = true;
                     break;
                 }
+                counter++;
             }
 
             return addedOption;
