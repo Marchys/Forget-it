@@ -1799,7 +1799,7 @@ MonoBehaviour:
       componentName: Fungus.Character, Assembly-CSharp-firstpass, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 1295300216
+      editorLocalId: 660865332
       editorPrefabRelativePath: 
       version: 1
     _fromField: setSayDialog
@@ -1812,7 +1812,7 @@ MonoBehaviour:
       componentName: Fungus.SayDialog, Assembly-CSharp-firstpass, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 1648892900
+      editorLocalId: 320741915
       editorPrefabRelativePath: 
       version: 1
   - _fromObject:
@@ -1824,7 +1824,7 @@ MonoBehaviour:
       componentName: Fungus.Character, Assembly-CSharp-firstpass, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 2010630724
+      editorLocalId: 1423401953
       editorPrefabRelativePath: 
       version: 1
     _fromField: setSayDialog
@@ -1837,7 +1837,7 @@ MonoBehaviour:
       componentName: Fungus.SayDialog, Assembly-CSharp-firstpass, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       componentIndex: 0
-      editorLocalId: 1272789769
+      editorLocalId: 1820215252
       editorPrefabRelativePath: 
       version: 1
   _realSceneRootsForPostBuild: []
@@ -1970,11 +1970,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011636685814, guid: a426a6e10a2bbec43b5e814a812ea183, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.86
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 4000011636685814, guid: a426a6e10a2bbec43b5e814a812ea183, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.3
+      value: -2.39
       objectReference: {fileID: 0}
     - target: {fileID: 4000011636685814, guid: a426a6e10a2bbec43b5e814a812ea183, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2008,6 +2008,14 @@ Prefab:
     - target: {fileID: 1000011268222118, guid: a426a6e10a2bbec43b5e814a812ea183, type: 2}
       propertyPath: m_Name
       value: Kolzov
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011636685814, guid: a426a6e10a2bbec43b5e814a812ea183, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011636685814, guid: a426a6e10a2bbec43b5e814a812ea183, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a426a6e10a2bbec43b5e814a812ea183, type: 2}
