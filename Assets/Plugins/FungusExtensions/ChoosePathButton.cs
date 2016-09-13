@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using UnityEditor;
 using UnityEngine.UI;
+using System;
 
 public class ChoosePathButton : MonoBehaviour
 {
@@ -10,31 +11,21 @@ public class ChoosePathButton : MonoBehaviour
     private Text _textComponent;
     private Image _imageComponent;
     private Button _buttonComponent;
-    private readonly float[] _buttonEntryTimes = {2f, 2.2f, 2.4f, 2.6f, 2.8f, 3f};
+    private RectTransform _rectTransform;
+    private readonly float[] _buttonEntryTimes = { 2f, 2.2f, 2.4f, 2.6f, 2.8f, 3f };
 
     public ChoosePathButton Initialize()
     {
         _textComponent = GetComponentInChildren<Text>();
-        if (_textComponent == null)
-        {
-            Debug.Log("Could not find text component");
-        }
         _imageComponent = GetComponent<Image>();
-        if (_imageComponent == null)
-        {
-            Debug.Log("Could not find image component");
-        }
         _buttonComponent = GetComponent<Button>();
-        if (_buttonComponent == null)
-        {
-            Debug.Log("Could not find button component");
-        }
+        _rectTransform = GetComponent<RectTransform>();
         Hide();
         Disable();
         return this;
     }
 
-    public ChoosePathButton SetOption(string text)
+    public ChoosePathButton SetOption(string text, Action onClick)
     {
         _buttonReady = true;
         if (_textComponent == null)
@@ -43,16 +34,16 @@ public class ChoosePathButton : MonoBehaviour
             return this;
         }
         _textComponent.text = text;
+        _buttonComponent.onClick.AddListener(() => OnClick(onClick));
         return this;
     }
 
     public ChoosePathButton StartEntry(int buttonIndex)
     {
         Show();
-        RectTransform rectTransform = GetComponent<RectTransform>();
-        Vector3 currentPosition = rectTransform.position;
-        rectTransform.position = new Vector3(currentPosition.x, currentPosition.y-530, currentPosition.z);
-        Tween tween = rectTransform.DOMove(currentPosition, _buttonEntryTimes[buttonIndex]).OnComplete(()=> Enable());
+        Vector3 currentPosition = _rectTransform.position;
+        _rectTransform.position = new Vector3(currentPosition.x, currentPosition.y - 530, currentPosition.z);
+        Tween tween = _rectTransform.DOMove(currentPosition, _buttonEntryTimes[buttonIndex], true).OnComplete(() => Enable());
         tween.SetEase(Ease.OutQuint);
         return this;
     }
@@ -81,6 +72,21 @@ public class ChoosePathButton : MonoBehaviour
     {
         _buttonComponent.enabled = true;
         return this;
-
     }
+
+    private ChoosePathButton OnClick(Action callback)
+    {
+        Sequence chooseSequence = DOTween.Sequence();
+        chooseSequence
+            .Append(_rectTransform.DOMove(new Vector3(413f,194f,0), 2f, true))
+            .Append(_rectTransform.DOScale(new Vector3(7, 7, 0), 2f))
+            .OnComplete(() =>
+            {
+                Hide();
+                callback();
+            });
+
+        return this;
+    }
+
 }

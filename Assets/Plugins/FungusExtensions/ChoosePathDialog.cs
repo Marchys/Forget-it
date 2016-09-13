@@ -107,8 +107,6 @@ namespace Fungus
                     button.gameObject.SetActive(true);
 
                     ChoosePathButton buttonComponent = button.GetComponent<ChoosePathButton>();
-                    buttonComponent.SetOption(text)
-                                   .StartEntry(counter);
 
                     button.interactable = interactable;
 
@@ -119,9 +117,8 @@ namespace Fungus
 
                     Block block = targetBlock;
 
-                    button.onClick.AddListener(delegate
+                    Action onClick = () =>
                     {
-
                         EventSystem.current.SetSelectedGameObject(null);
 
                         StopAllCoroutines(); // Stop timeout
@@ -141,7 +138,10 @@ namespace Fungus
 
                             block.StartExecution();
                         }
-                    });
+                    };
+
+                    buttonComponent.SetOption(text, onClick)
+                                  .StartEntry(counter);
 
                     addedOption = true;
                     break;
