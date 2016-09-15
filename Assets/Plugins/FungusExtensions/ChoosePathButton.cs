@@ -76,9 +76,13 @@ public class ChoosePathButton : MonoBehaviour
 
     private ChoosePathButton OnClick(Action callback)
     {
+        Material material = Instantiate(_imageComponent.material);
+        _imageComponent.material = material;
         Sequence chooseSequence = DOTween.Sequence();
         chooseSequence
-            .Append(_rectTransform.DOMove(new Vector3(413f,194f,0), 2f, true))
+            .Append(_rectTransform.DOMove(new Vector3(413f, 194f, 0), 2f, true))
+            .Join(_imageComponent.material.DOFloat(1,"_FlashAmount",1f))
+            .Append(_imageComponent.material.DOFloat(0, "_FlashAmount", 1f))
             .Append(_rectTransform.DOScale(new Vector3(7, 7, 0), 2f))
             .OnComplete(() =>
             {
