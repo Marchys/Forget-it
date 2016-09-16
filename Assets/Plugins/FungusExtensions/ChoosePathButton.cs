@@ -4,6 +4,7 @@ using DG.Tweening;
 using UnityEditor;
 using UnityEngine.UI;
 using System;
+using SRF;
 
 public class ChoosePathButton : MonoBehaviour
 {
@@ -75,21 +76,31 @@ public class ChoosePathButton : MonoBehaviour
     }
 
     private ChoosePathButton OnClick(Action callback)
-    {
+    {   
+        _rectTransform.SetAsLastSibling();
+        DOTween.defaultEaseType = Ease.OutQuart;
         Material material = Instantiate(_imageComponent.material);
         _imageComponent.material = material;
+
+        Sequence flashSequence = DOTween.Sequence();
+        flashSequence
+            .Append(_imageComponent.material.DOFloat(1, "_FlashAmount", 0.1f))
+            .Append(_imageComponent.material.DOFloat(0, "_FlashAmount", 0.1f))
+            .Append(_imageComponent.material.DOFloat(1, "_FlashAmount", 0.1f))
+            .Append(_imageComponent.material.DOFloat(0, "_FlashAmount", 0.1f))
+            .SetEase(Ease.OutQuint);
         Sequence chooseSequence = DOTween.Sequence();
         chooseSequence
-            .Append(_rectTransform.DOMove(new Vector3(413f, 194f, 0), 2f, true))
-            .Join(_imageComponent.material.DOFloat(1,"_FlashAmount",1f))
-            .Append(_imageComponent.material.DOFloat(0, "_FlashAmount", 1f))
-            .Append(_rectTransform.DOScale(new Vector3(7, 7, 0), 2f))
+            .Append(_rectTransform.DOMove(new Vector3(413f, 200f, 0), 1.5f, true))
+            .Join(flashSequence)
+            .Append(_rectTransform.DOScale(new Vector3(10, 10, 0), 1f))
+            .Join(_imageComponent.material.DOFloat(1, "_FlashAmount", 1f))
+            .PrependInterval(1f)
             .OnComplete(() =>
             {
                 Hide();
                 callback();
             });
-
         return this;
     }
 
